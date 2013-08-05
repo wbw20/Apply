@@ -1,12 +1,16 @@
 var express = require('express');
+var ejs = require('ejs');
 
 var app = express();
+app.engine('.html', ejs.__express);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/static');
+
+console.log(__dirname + '/static');
 
 app.get('/agent', function(req, res) {
-  var body = 'Hello World';
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', body.length);
-  res.end(body);
+  res.render('agent');
+  console.log(express.static());
 });
 
 app.listen(8080);
