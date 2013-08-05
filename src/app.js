@@ -6,8 +6,6 @@ app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/static');
 
-console.log(__dirname + '/static');
-
 app.get('/agent', function(req, res) {
   res.render('agent');
   console.log(express.static());
