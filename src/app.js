@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/static'));
 app.set('views', __dirname + '/static');
 
 app.get('/agent', function(req, res) {
-  res.render('agent');
+  res.render('agent/views/index');
 });
 
 app.listen(8080);
