@@ -13,9 +13,5 @@ var container = Ember.ContainerView.create({
   childViews: []
 });
 
-App.Router.map(function() {
-  this.resource('menu', { path: '/contacts/:contact_id' });
-});
-
 var w = 0;
 });
