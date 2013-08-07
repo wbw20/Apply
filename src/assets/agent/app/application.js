@@ -1,6 +1,6 @@
 //= require agent/app/views/dashboard/menu_view.js
 
-App = Ember.Application.create();
+window.App = Ember.Application.create();
 
 App.IndexRoute = Ember.Route.extend({
   model: function() {
