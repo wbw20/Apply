@@ -1,3 +1,4 @@
+//= require agent/app/router.js
 //= require agent/app/views/dashboard/menu_view.js
 
 window.App = Ember.Application.create();
