@@ -14,7 +14,7 @@ var environment = new Mincer.Environment();
 environment.appendPath(__dirname + '/assets');
 
 /* Built agent assets */
-var agent = environment.findAsset('agent/app/application.js').toString();
+var agent = environment.findAsset('agent/app/index.js').toString();
 fs.writeFileSync(__dirname + "/assets/built/agent.js", agent);
 
 app.get('/agent', function(req, res) {
