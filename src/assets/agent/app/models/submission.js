@@ -1,4 +1,4 @@
-App.Submission = Ember.Resource.extend({
+App.Submission = Ember.Resource.define({
   url: '/',
   schema: {
     name: String
