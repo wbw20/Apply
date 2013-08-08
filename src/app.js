@@ -14,11 +14,13 @@ var environment = new Mincer.Environment();
 environment.appendPath(__dirname + '/assets');
 
 /* Built agent assets */
-var agent = environment.findAsset('agent/app/index.js').toString();
-fs.writeFileSync(__dirname + "/assets/built/agent.js", agent);
+var agentjs = environment.findAsset('agent/app/index.js').toString();
+fs.writeFileSync(__dirname + "/assets/built/agent.js", agentjs);
+var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/views/index.html").toString()).toString();
+fs.writeFileSync(__dirname + "/assets/built/agent.html", agenthtml);
 
 app.get('/agent', function(req, res) {
-  res.render('agent/app/views/index');
+  res.render('built/agent');
 });
 
 app.listen(8080);
