@@ -4,7 +4,7 @@ html, body {
 }
 
 .dashboard {
-  
+  float: left;
 }
 
 .sidebar {
