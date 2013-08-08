@@ -1,1 +1,1 @@
-//= require agent/app/models/submission.js
+//= require agent/app/js/models/submission.js

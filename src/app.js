@@ -15,10 +15,10 @@ var environment = new Mincer.Environment();
 environment.appendPath(__dirname + '/assets');
 
 /* Built agent assets */
-var agentjs = environment.findAsset('agent/app/index.js').toString();
+var agentjs = environment.findAsset('agent/app/js/index.js').toString();
 fs.writeFileSync(__dirname + "/assets/built/agent.js", agentjs);
-var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/views/index.ejs").toString(), {
-  filename: __dirname + "/assets/agent/app/views/index.ejs"
+var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/ejs/index.ejs").toString(), {
+  filename: __dirname + "/assets/agent/app/ejs/index.ejs"
 }).toString();
 fs.writeFileSync(__dirname + "/assets/built/agent.html", agenthtml);
 //TODO: sass assets
