@@ -1,5 +1,6 @@
 var express = require('express'),
     ejs = require('ejs'),
+    sass = require('node-sass'),
     fs = require('fs');
 
 var Mincer = require('mincer');
@@ -20,6 +21,7 @@ var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/views/
   filename: __dirname + "/assets/agent/app/views/index.ejs"
 }).toString();
 fs.writeFileSync(__dirname + "/assets/built/agent.html", agenthtml);
+//TODO: sass assets
 
 app.get('/agent', function(req, res) {
   res.render('built/agent');
