@@ -16,7 +16,9 @@ environment.appendPath(__dirname + '/assets');
 /* Built agent assets */
 var agentjs = environment.findAsset('agent/app/index.js').toString();
 fs.writeFileSync(__dirname + "/assets/built/agent.js", agentjs);
-var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/views/index.html").toString()).toString();
+var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/views/index.ejs").toString(), {
+  filename: __dirname + "/assets/agent/app/views/index.ejs"
+}).toString();
 fs.writeFileSync(__dirname + "/assets/built/agent.html", agenthtml);
 
 app.get('/agent', function(req, res) {
