@@ -9,6 +9,7 @@ html, body {
 
 .header {
   background-color: #ff7659;
+  height: 40px;
 }
 
 .sidebar {
