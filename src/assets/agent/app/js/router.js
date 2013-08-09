@@ -1,4 +1,9 @@
 App.Router.map(function () {
-  this.resource('home', { path: '/' });
-  this.resource('menu', { path: '/menu' });
+  this.resource('workspace', { path: '/' });
+});
+
+App.WorkspaceRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render({ outlet: 'workspace' });
+  }
 });
