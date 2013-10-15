@@ -20,6 +20,7 @@ fs.writeFileSync(__dirname + "/assets/built/agent.js", agentjs);
 var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/ejs/index.ejs").toString(), {
   filename: __dirname + "/assets/agent/app/ejs/index.ejs"
 }).toString();
+
 fs.writeFileSync(__dirname + "/assets/built/agent.html", agenthtml);
 //TODO: sass assets
 

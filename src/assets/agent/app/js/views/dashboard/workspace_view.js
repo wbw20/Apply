@@ -1,3 +1,3 @@
-var view = Ember.View.create({
+App.WorkspaceView = Ember.View.create({
   templateName: 'workspace'
 });

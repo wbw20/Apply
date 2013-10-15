@@ -1,1 +1,1 @@
-//= require agent/app/js/views/root.js
+//= require agent/app/js/views/dashboard/root.js
