@@ -5,6 +5,14 @@ App.Router.map(function() {
 
 App.WorkspaceRoute = Ember.Route.extend({
   model: function(params) {
-    return ['an app', 'another app'];
+    return [{
+        name: "Will",
+        major: "Computer Science",
+        gpa: "3.0"
+    }, {
+        name: "Charles",
+        major: "Barking",
+        gpa: "4.0"
+    }];
   }
 });
