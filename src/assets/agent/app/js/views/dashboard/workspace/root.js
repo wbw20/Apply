@@ -1,0 +1,1 @@
+//= require agent/app/js/views/dashboard/workspace/workspace_view.js
