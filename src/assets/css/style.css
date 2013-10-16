@@ -18,6 +18,10 @@ li {
   border: 1px solid black; 
 }
 
+.focused {
+  background-color: #F0F0F0;
+}
+
 .dashboard {
 }
 
