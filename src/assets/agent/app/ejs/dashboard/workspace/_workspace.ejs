@@ -1,0 +1,19 @@
+<script type="text/x-handlebars" data-template-name="workspace">
+  <ul>
+    {{#each model}}
+      {{#view App.WorkspaceRowView}}
+        <li>
+          <span>
+            {{name}}
+          </span>
+          <span>
+            {{major}}
+          </span>
+          <span>
+            {{gpa}}
+          </span>
+        </li>
+      {{/view}}
+    {{/each}}
+  <ul>
+</script>
