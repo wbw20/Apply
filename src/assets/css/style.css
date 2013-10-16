@@ -9,6 +9,15 @@ div {
   height: 100%;
 }
 
+ul {
+  list-style: none;
+}
+
+li {
+  height: 35px;
+  border: 1px solid black; 
+}
+
 .dashboard {
 }
 
