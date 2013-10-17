@@ -16,6 +16,8 @@ li {
 /* Classes */
 .dashboard {
   float: left;
+  width: 700px;
+  height: 100%;
 }
 
 .focused {
@@ -25,6 +27,10 @@ li {
 .header {
   background-color: #ff7659;
   height: 40px;
+}
+
+.row {
+  width: 600px;
 }
 
 .sidebar {
