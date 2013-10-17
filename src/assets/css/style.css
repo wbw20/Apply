@@ -32,3 +32,8 @@ li {
   width: 100px;
   height: 100%;
 }
+
+/* Ember hacks */
+.ember-view {
+  height: 100%;
+}
