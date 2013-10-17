@@ -20,9 +20,13 @@
       <% include header %>
       <% include sidebar/_sidebar %>
 
-      <div class="dashboard">
-        {{outlet}}
-      </div>
+      <ul class="nav nav tabs">
+        <li class="active">
+          <div class="dashboard">
+            {{outlet}}
+          </div>
+        </li>
+      </ul>
     </script>
 
     <% include dashboard/_dashboard %>
