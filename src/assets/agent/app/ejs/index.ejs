@@ -17,16 +17,11 @@
   </head>
   <body>
     <script type="text/x-handlebars">
-      <% include header %>
       <% include sidebar/_sidebar %>
-
-      <ul class="nav nav tabs">
-        <li class="active">
-          <div class="dashboard">
-            {{outlet}}
-          </div>
-        </li>
-      </ul>
+      <% include header %>
+      <div class="dashboard">
+        {{outlet}}
+      </div>
     </script>
 
     <% include dashboard/_dashboard %>
