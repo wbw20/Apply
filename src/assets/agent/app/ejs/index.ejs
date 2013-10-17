@@ -16,9 +16,12 @@
     <script src="/built/agent.js"></script>
   </head>
   <body>
+    <% include header %>
     <script type="text/x-handlebars">
       <% include sidebar/_sidebar %>
-      <% include header %>
+      <div class="header">
+        {{view App.HeaderView}}
+      </div>
       <div class="dashboard">
         {{outlet dashboard}}
       </div>
