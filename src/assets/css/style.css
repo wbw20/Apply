@@ -21,6 +21,10 @@ html, body {
   height: 40px;
 }
 
+.nav-bar {
+  padding-top: 25px;
+}
+
 .row {
   width: 600px;
 }
