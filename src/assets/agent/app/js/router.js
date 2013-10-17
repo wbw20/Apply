@@ -14,5 +14,11 @@ App.WorkspaceRoute = Ember.Route.extend({
         major: "Barking",
         gpa: "4.0"
     }];
+  },
+
+  renderTemplate: function() {
+    this.render({
+      outlet: 'dashboard'
+    });
   }
 });
