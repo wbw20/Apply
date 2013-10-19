@@ -13,6 +13,10 @@ App.WorkspaceRoute = Ember.Route.extend({
         name: "Charles",
         major: "Barking",
         gpa: "4.0"
+    }, {
+        name: "Ginny",
+        major: "Psychology premed",
+        gpa: "3.5"
     }];
   },
 
