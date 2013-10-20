@@ -2,8 +2,8 @@
   <ul class="list-group">
     {{#each model}}
       {{#view App.WorkspaceRowView}}
-        <li class="list-group-item">
-          {{#linkTo 'workspace.submission' this}}
+        {{#linkTo 'workspace.submission' this}}
+          <li class="list-group-item">
             <span>
               {{name}}
             </span>
@@ -13,8 +13,8 @@
             <span>
              {{gpa}}
             </span>
-          {{/linkTo}}
-        </li>
+          </li>
+        {{/linkTo}}
       {{/view}}
     {{/each}}
   <ul>
