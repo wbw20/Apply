@@ -3,15 +3,17 @@
     {{#each model}}
       {{#view App.WorkspaceRowView}}
         <li class="list-group-item">
-          <span>
-            {{name}}
-          </span>
-          <span>
-            {{major}}
-          </span>
-          <span>
-            {{gpa}}
-          </span>
+          {{#linkTo 'workspace.submission' this}}
+            <span>
+              {{name}}
+            </span>
+            <span>
+             {{major}}
+            </span>
+            <span>
+             {{gpa}}
+            </span>
+          {{/linkTo}}
         </li>
       {{/view}}
     {{/each}}

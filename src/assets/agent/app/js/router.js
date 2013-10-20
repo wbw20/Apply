@@ -31,3 +31,11 @@ App.WorkspaceRoute = Ember.Route.extend({
     });
   }
 });
+
+App.WorkspaceSubmissionRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render({
+      outlet: 'dashboard'
+    });
+  }
+});

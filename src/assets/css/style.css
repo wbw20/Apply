@@ -29,6 +29,12 @@ html, body {
   width: 600px;
 }
 
+.row-link {
+  text-decoration: none;
+  display: block;
+  color: black;
+}
+
 .sidebar {
   background-color: #f8f8f8;
   float: left;
