@@ -8,7 +8,7 @@ html, body {
 .dashboard {
   float: left;
   padding-top: 30px;
-  width: 700px;
+  width: 900px;
   height: 100%;
 }
 
@@ -18,11 +18,11 @@ html, body {
 
 .header {
   background-color: #ff7659;
-  height: 40px;
+  height: 70px;
 }
 
 .nav-bar {
-  padding-top: 25px;
+  padding-top: 50px;
 }
 
 .row {
@@ -38,7 +38,7 @@ html, body {
 .sidebar {
   background-color: #f8f8f8;
   float: left;
-  width: 100px;
+  width: 150px;
   height: 100%;
 }
 
