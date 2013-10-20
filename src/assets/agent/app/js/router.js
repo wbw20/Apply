@@ -51,6 +51,9 @@ App.WorkspaceRoute = Ember.Route.extend({
 });
 
 App.SubmissionRoute = Ember.Route.extend({
+  model: function(params) {
+    return fakedata[params.submission_id];
+  },
   renderTemplate: function(controller, model) {
     this.controllerFor('application').newtab(model);
     this.render({
