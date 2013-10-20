@@ -1,13 +1,12 @@
 App.Router.map(function() {
-  this.resource('workspace', function() {
-    this.route("submission", { path: "/:submission_id" });
+  this.resource('workspace');
+  this.resource('submissions', function() {
+    this.resource('submission', { path: "/:submission_id" });
   });
   this.resource('profile');
 });
 
-App.WorkspaceRoute = Ember.Route.extend({
-  model: function(params) {
-    return [{
+var fakedata = [{
         id: 0,
         name: "Will",
         major: "Computer Science",
@@ -22,7 +21,26 @@ App.WorkspaceRoute = Ember.Route.extend({
         name: "Ginny",
         major: "Psychology premed",
         gpa: "3.5"
+    }, {
+        id: 3,
+        name: "Clarence",
+        major: "Ping Pong",
+        gpa: "3.5"
+    }, {
+        id: 4,
+        name: "Margaret Shingle",
+        major: "Botony",
+        gpa: "1.7"
+    }, {
+        id: 5,
+        name: "Shackleford Davinci",
+        major: "Plant Physics",
+        gpa: "0.4"
     }];
+
+App.WorkspaceRoute = Ember.Route.extend({
+  model: function() {
+    return fakedata;
   },
 
   renderTemplate: function() {
@@ -32,7 +50,7 @@ App.WorkspaceRoute = Ember.Route.extend({
   }
 });
 
-App.WorkspaceSubmissionRoute = Ember.Route.extend({
+App.SubmissionRoute = Ember.Route.extend({
   renderTemplate: function() {
     this.render({
       outlet: 'dashboard'
