@@ -23,7 +23,7 @@ var fakedata = [{
         gpa: "3.5"
     }, {
         id: 3,
-        name: "Clarence",
+        name: "Clarence Pine",
         major: "Ping Pong",
         gpa: "3.5"
     }, {
@@ -51,8 +51,8 @@ App.WorkspaceRoute = Ember.Route.extend({
 });
 
 App.SubmissionRoute = Ember.Route.extend({
-  renderTemplate: function() {
-    this.controllerFor('application').newtab();
+  renderTemplate: function(controller, model) {
+    this.controllerFor('application').newtab(model);
     this.render({
       outlet: 'dashboard'
     });
