@@ -52,6 +52,7 @@ App.WorkspaceRoute = Ember.Route.extend({
 
 App.SubmissionRoute = Ember.Route.extend({
   renderTemplate: function() {
+    this.controllerFor('application').newtab();
     this.render({
       outlet: 'dashboard'
     });
