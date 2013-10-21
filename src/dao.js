@@ -1,17 +1,16 @@
 var fs = require('fs'),
-    Bookshelf = require('bookshelf');
+    orm = require('orm');
 
-module.exports = Object.freeze(
-  (function(credentials) {
-    return Bookshelf.initialize({
-      client: 'mysql',
-      connection: {
-        host     : credentials.db.host,
-        user     : credentials.db.user,
-        password : credentials.db.password,
-        database : credentials.db.database,
-        charset  : 'utf8'
-      }
+var credentials = JSON.parse(fs.readFileSync('conf/properties.json').toString());
+var url = "mysql://" + credentials.db.username + ":" + credentials.db.password +
+            "@" + credentials.db.host + "/" + credentials.db.database;
+
+console.log(url);
+
+module.exports = Object.freeze({
+  connect: function(callback) {
+    orm.connect(url, function(error, connection) {
+      callback(connection);
     });
-  }(JSON.parse(fs.readFileSync('conf/properties.json').toString())))
-);
+  }
+});
