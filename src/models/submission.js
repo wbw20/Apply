@@ -1,5 +1,5 @@
-var dao = require('../dao');
-
-module.exports = Object.freeze({
-
-});
+module.exports = function(connection) {
+  connection.define('submission', {
+    submitted: Date
+  });
+}
