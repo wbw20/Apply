@@ -28,4 +28,6 @@ app.get('/agent', function(req, res) {
   res.render('built/agent');
 });
 
+var connection = require('./dao');
+
 app.listen(8080);

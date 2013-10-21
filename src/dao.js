@@ -1,3 +1,6 @@
+var fs = require('fs'),
+    Bookshelf = require('bookshelf');
+
 module.exports = Object.freeze(
   (function(credentials) {
     return Bookshelf.initialize({
@@ -10,5 +13,5 @@ module.exports = Object.freeze(
         charset  : 'utf8'
       }
     });
-  }(JSON.parse(fs.readFileSync('../conf/properties.json').toString())))
+  }(JSON.parse(fs.readFileSync('conf/properties.json').toString())))
 );
