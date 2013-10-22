@@ -23,5 +23,9 @@ module.exports = {
         }
       })
     });
+
+    app.put('/submission', function(req, res) {
+      //TODO
+    });
   }
 };
