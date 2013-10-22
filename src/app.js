@@ -24,6 +24,14 @@ var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/ejs/in
 fs.writeFileSync(__dirname + "/assets/built/agent.html", agenthtml);
 //TODO: sass assets
 
+app.param('id', function(req, res, next, id) {
+  if (id) {
+    req.id = id;
+  }
+
+  next();
+});
+
 require('./controllers/submission_controller').setup(app);
 
 app.get('/agent', function(req, res) {
