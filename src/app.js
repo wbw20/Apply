@@ -29,5 +29,6 @@ app.get('/agent', function(req, res) {
 });
 
 var connection = require('./dao');
+require('./controllers/submission_controller');
 
 app.listen(8080);

@@ -1,21 +1,17 @@
 var fs = require('fs'),
-    orm = require('orm');
+    Schema = require('jugglingdb').Schema;
 
 var credentials = JSON.parse(fs.readFileSync('conf/properties.json').toString());
-var url = "mysql://" + credentials.db.username + ":" + credentials.db.password +
-            "@" + credentials.db.host + "/" + credentials.db.database;
-
-var db_connect = function(callback) {
-  orm.connect(url, function(error, connection) {
-    callback(connection);
-  });
-}
-
-db_connect(require('./models/submission'));
-db_connect(function(connection) {
-  connection.sync();
+var schema = new Schema('mysql', {
+  host: credentials.db.host,
+  port: credentials.db.port,
+  database: credentials.db.database,
+  username: credentials.db.username,
+  password: credentials.db.password
 });
 
-module.exports = Object.freeze({
-  connect: db_connect
+schema.automigrate(function() {
+
 });
+
+module.exports = schema;
