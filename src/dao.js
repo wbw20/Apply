@@ -10,8 +10,4 @@ var schema = new Schema('mysql', {
   password: credentials.db.password
 });
 
-schema.automigrate(function() {
-
-});
-
 module.exports = schema;

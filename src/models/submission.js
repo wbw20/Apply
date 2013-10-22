@@ -1,9 +1,12 @@
 var dao = require('../dao');
 
-var Submission = dao.define('Submission', {
+var Submission = dao.define('submission', {
     timestamp: Date
 });
 
-module.exports = Object.freeze({
-  Submission: Submission
+dao.autoupdate(function() {
 });
+
+module.exports = {
+  Submission: Submission
+};

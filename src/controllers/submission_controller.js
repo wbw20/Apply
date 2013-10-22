@@ -1,11 +1,9 @@
 var Submission = require('../models/submission').Submission;
 
-var sub = Submission({
-  timestamp: Date.now()
-});
-
-sub.save();
-
-module.exports = Object.freeze({
-  
-});
+module.exports = {
+  setup: function(app) {
+    app.get('/submission', function(req, res) {
+      res.send([]);
+    });
+  }
+};
