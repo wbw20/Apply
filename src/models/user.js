@@ -1,5 +1,5 @@
 var dao = require('../dao');
-require('../util/extend')
+require('../util/extend');
 
 var User = dao.define('user', {
 });
