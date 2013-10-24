@@ -2,6 +2,9 @@ var dao = require('../dao');
 require('../util/extend');
 
 var User = dao.define('user', {
+  first: { type: String, length: 32 },
+  last:  { type: String, length: 32 },
+  role:  { type: String, length: 32 }
 });
 
 User.extend = Class.extend;
