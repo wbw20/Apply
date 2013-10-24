@@ -10,9 +10,17 @@ var User = dao.define('user', {
 User.extend = Class.extend;
 
 var Agent = User.extend({
+  create: function(properties) {
+    properties.role = 'agent';
+    this._super(properties);
+  }
 });
 
 var Applicant = User.extend({
+  create: function(properties) {
+    properties.role = 'applicant';
+    this._super(properties);
+  }
 });
 
 module.exports = {
