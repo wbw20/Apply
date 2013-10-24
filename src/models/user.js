@@ -1,13 +1,11 @@
 var dao = require('../dao');
 require('../lib/extend');
 
-var User = dao.define('user', {
+var User = Class.extend(dao.define('user', {
   first: { type: String, length: 32 },
   last:  { type: String, length: 32 },
   role:  { type: String, length: 32 }
-});
-
-User.extend = Class.extend;
+}));
 
 var Agent = User.extend({
   create: function(properties) {
