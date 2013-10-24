@@ -34,7 +34,7 @@ app.param('id', function(req, res, next, id) {
 
 require('./controllers/submission_controller').setup(app);
 require('./controllers/agent_controller');
-require('./controllers/application_controller');
+require('./controllers/applicant_controller');
 
 app.get('/agent', function(req, res) {
   res.render('built/agent');
