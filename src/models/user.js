@@ -1,4 +1,5 @@
 var dao = require('../dao');
+var Submission = require('./submission');
 require('../lib/extend');
 
 var User = Class.extend(dao.define('user', {
