@@ -22,9 +22,6 @@ var Applicant = User.extend({
   }
 });
 
-dao.autoupdate(function() {
-});
-
 module.exports = {
   Agent: Agent,
   Applicant: Applicant

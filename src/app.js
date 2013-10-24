@@ -1,7 +1,8 @@
 var express = require('express'),
     ejs = require('ejs'),
     sass = require('node-sass'),
-    fs = require('fs');
+    fs = require('fs'),
+    dao = require('./dao');
 
 var Mincer = require('mincer');
 
@@ -35,6 +36,9 @@ app.param('id', function(req, res, next, id) {
 require('./controllers/submission_controller').setup(app);
 require('./controllers/agent_controller').setup(app);
 require('./controllers/applicant_controller').setup(app);
+
+dao.autoupdate(function() {
+});
 
 app.get('/agent', function(req, res) {
   res.render('built/agent');

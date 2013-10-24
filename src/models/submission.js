@@ -11,9 +11,6 @@ Submission.belongsTo(Applicant, {
   foreignKey: 'applicantId'
 });
 
-dao.autoupdate(function() {
-});
-
 module.exports = {
   Submission: Submission
 };
