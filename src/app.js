@@ -8,8 +8,9 @@ var Mincer = require('mincer');
 
 var app = express();
 app.engine('.html', ejs.__express);
-app.set('view engine', 'html');
 app.use(express.static(__dirname + '/assets'));
+app.use(express.bodyParser());
+app.set('view engine', 'html');
 app.set('views', __dirname + '/assets');
 
 var environment = new Mincer.Environment();
