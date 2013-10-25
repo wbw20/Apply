@@ -1,4 +1,4 @@
-var Agent = require('../models/user').Agent;
+var Agent = require('../models/agent').Agent;
 
 module.exports = {
   setup: function(app) {

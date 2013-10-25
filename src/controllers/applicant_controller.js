@@ -1,4 +1,4 @@
-var Applicant = require('../models/user').Applicant;
+var Applicant = require('../models/applicant').Applicant;
 
 module.exports = {
   setup: function(app) {
