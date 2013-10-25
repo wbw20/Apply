@@ -1,6 +1,4 @@
 var dao = require('../dao');
-var Submission = require('./submission');
-require('../lib/extend');
 
 var Agent = Class.extend(dao.define('agent', {
   first: { type: String, length: 32 },
