@@ -15,7 +15,7 @@ module.exports = {
     });
 
     app.post('/submission', function(req, res) {
-      Submission.create(function(error) {
+      Submission.create(req.body, function(error) {
         if (error) {
           res.send(500, error);
         } else {
