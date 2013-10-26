@@ -5,11 +5,17 @@ module.exports = {
     app.get('/submission/:id?', function(req, res) {
       if (req.id) {
         Submission.find(req.id, function(error, data) {
-          res.send(data);
+          data.applicant(function(error, app) {
+            var result = data.toObject();
+            result.applicant = app.toObject();
+            res.send(result);
+          });
         });
       } else {
-        Submission.all(function(error, data) {
-          res.send(data);
+        Submission.all(function(error, submission) {
+          Submission.include(submission, 'applicant', function(error, data) {
+            res.send(data);
+          });
         });
       }
     });
