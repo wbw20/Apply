@@ -1,21 +1,36 @@
-var Submission = require('../models/submission').Submission;
+var Submission = require('../models/models').Submission;
+
+function join(data) {
+  var results = [];
+  for (var i=0, l=data.length; i<l; i++) {
+    var result = data[i].toObject();
+    result.applicant = data[i].__cachedRelations.applicant.toObject();
+    results.push(result);
+  }
+
+  return results;
+}
 
 module.exports = {
   setup: function(app) {
-    app.get('/submission/:id?', function(req, res) {
+    app.get('/v1/submission/:id?', function(req, res) {
       if (req.id) {
         Submission.find(req.id, function(error, data) {
-          res.send(data);
+          data.applicant(function(error, app) {
+            var result = data.toObject();
+            result.applicant = app.toObject();
+            res.send(result);
+          });
         });
       } else {
-        Submission.all(function(error, data) {
-          res.send(data);
+        Submission.all({ include: 'applicant' }, function(error, data) {
+          res.send(join(data));
         });
       }
     });
 
-    app.post('/submission', function(req, res) {
-      Submission.create(function(error) {
+    app.post('/v1/submission', function(req, res) {
+      Submission.create(req.body, function(error) {
         if (error) {
           res.send(500, error);
         } else {
@@ -24,7 +39,7 @@ module.exports = {
       })
     });
 
-    app.put('/submission', function(req, res) {
+    app.put('/v1/submission', function(req, res) {
       //TODO
     });
   }

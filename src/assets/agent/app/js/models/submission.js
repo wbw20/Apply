@@ -1,6 +1,10 @@
 App.Submission = Ember.Resource.define({
-  url: '/',
+  url: '/v1/submission',
   schema: {
-    name: String
+    id:    Number,
+    submitted:  Date,
+    applicant: {
+      type: App.Applicant
+    }
   }
 });

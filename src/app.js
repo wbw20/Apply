@@ -1,14 +1,16 @@
 var express = require('express'),
     ejs = require('ejs'),
     sass = require('node-sass'),
-    fs = require('fs');
+    fs = require('fs'),
+    dao = require('./dao');
 
 var Mincer = require('mincer');
 
 var app = express();
 app.engine('.html', ejs.__express);
-app.set('view engine', 'html');
 app.use(express.static(__dirname + '/assets'));
+app.use(express.bodyParser());
+app.set('view engine', 'html');
 app.set('views', __dirname + '/assets');
 
 var environment = new Mincer.Environment();
@@ -33,6 +35,11 @@ app.param('id', function(req, res, next, id) {
 });
 
 require('./controllers/submission_controller').setup(app);
+require('./controllers/agent_controller').setup(app);
+require('./controllers/applicant_controller').setup(app);
+
+dao.autoupdate(function() {
+});
 
 app.get('/agent', function(req, res) {
   res.render('built/agent');
