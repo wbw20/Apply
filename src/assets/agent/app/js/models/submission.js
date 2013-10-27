@@ -1,5 +1,5 @@
 App.Submission = Ember.Resource.define({
-  url: '/submission',
+  url: '/v1/submission',
   schema: {
     id:    Number,
     submitted:  Date,

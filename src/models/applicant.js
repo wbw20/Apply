@@ -1,4 +1,5 @@
-var dao = require('../dao');
+var dao = require('../dao'),
+    Submission = require('./submission').Submission;
 
 var Applicant = dao.define('applicant', {
   first: { type: String, length: 32 },

@@ -1,8 +1,8 @@
-var Applicant = require('../models/applicant').Applicant;
+var Applicant = require('../models/models').Applicant;
 
 module.exports = {
   setup: function(app) {
-    app.get('/applicant/:id?', function(req, res) {
+    app.get('/v1/applicant/:id?', function(req, res) {
       if (req.id) {
         Applicant.find(req.id, function(error, data) {
           res.send(data);
@@ -14,7 +14,7 @@ module.exports = {
       }
     });
 
-    app.post('/applicant', function(req, res) {
+    app.post('/v1/applicant', function(req, res) {
       Applicant.create(req.body, function(error) {
         if (error) {
           res.send(500, error);
@@ -24,7 +24,7 @@ module.exports = {
       })
     });
 
-    app.put('/applicant', function(req, res) {
+    app.put('/v1/applicant', function(req, res) {
       //TODO
     });
   }

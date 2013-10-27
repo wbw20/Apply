@@ -1,5 +1,5 @@
 App.Applicant = Ember.Resource.define({
-  url: '/applicant',
+  url: '/v1/applicant',
   schema: {
     id: Number,
     first: String,
