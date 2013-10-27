@@ -40,7 +40,7 @@ var fakedata = [{
 
 App.WorkspaceRoute = Ember.Route.extend({
   model: function() {
-    return fakedata;
+    return App.Submission.create().fetch();
   },
 
   renderTemplate: function() {
