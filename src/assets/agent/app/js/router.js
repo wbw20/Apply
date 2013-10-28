@@ -10,10 +10,10 @@ App.ApplicationRoute = Ember.Route.extend({
   setupController: function(controller) {
     controller.set('tabs', [{
       name: "home",
-      path: "#"
+      route: "index"
     }, {
       name: "new",
-      path: "#/new"
+      route: "new"
     }]);
   }
 });
