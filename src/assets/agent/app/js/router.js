@@ -6,6 +6,18 @@ App.Router.map(function() {
   this.resource('profile');
 });
 
+App.ApplicationRoute = Ember.Route.extend({
+  setupController: function(controller) {
+    controller.set('tabs', [{
+      name: "home",
+      path: "#"
+    }, {
+      name: "new",
+      path: "#/new"
+    }]);
+  }
+});
+
 App.WorkspaceRoute = Ember.Route.extend({
   model: function() {
     return App.Submission.create().fetch();

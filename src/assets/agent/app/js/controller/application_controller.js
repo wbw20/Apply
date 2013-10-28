@@ -1,6 +1,6 @@
 var open = [];
 
-App.ApplicationController = Ember.Controller.extend({
+App.ApplicationController = Ember.ArrayController.extend({
   newtab: function(model) {
     if (open.indexOf(parseInt(model.id)) == -1) {
       $('#firsttab').after('<li class="active">' +
@@ -9,5 +9,8 @@ App.ApplicationController = Ember.Controller.extend({
                            '</li>');
       open.push(parseInt(model.id));
     }
+  },
+  open: function(tab) {
+    debugger
   }
 });
