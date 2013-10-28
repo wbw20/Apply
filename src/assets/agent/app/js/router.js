@@ -10,7 +10,6 @@ App.WorkspaceRoute = Ember.Route.extend({
   model: function() {
     return App.Submission.create().fetch();
   },
-
   renderTemplate: function() {
     this.render({
       outlet: 'dashboard'
