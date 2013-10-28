@@ -2,12 +2,12 @@ var open = [];
 
 App.ApplicationController = Ember.Controller.extend({
   newtab: function(model) {
-    if (open.indexOf(model.id) == -1) {
+    if (open.indexOf(parseInt(model.id)) == -1) {
       $('#firsttab').after('<li class="active">' +
                              '<a href="#/submissions/' + model.id + '">' + model.applicant.first +
                              ' ' + model.applicant.last + '</a>' +
                            '</li>');
-      open.push(model.id);
+      open.push(parseInt(model.id));
     }
   }
 });
