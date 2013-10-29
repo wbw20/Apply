@@ -1,5 +1,3 @@
-var open = [];
-
 App.ApplicationController = Ember.ArrayController.extend({
   newtab: function(model) {
     if (this.get('tabs').indexOf(model) != -1) {
