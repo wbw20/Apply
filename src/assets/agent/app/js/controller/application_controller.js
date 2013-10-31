@@ -13,14 +13,20 @@ App.ApplicationController = Ember.ArrayController.extend({
       this.pushObject(tab);
     }
 
-    this.transitionToRoute(tab.route, tab.model);
+    if (tab.model) {
+      this.transitionToRoute(tab.route, tab.model);
+    } else {
+      this.transitionToRoute(tab.route);
+    }
   },
   contains: function(tab) {
     var content = this.get('content');
+
+    if (!tab.model) {
+      return this._super(tab);
+    }
+
     for (i=0; i < content.length; i++) {
-      if (!tab.model) {
-        return this._super(tab);
-      }
       if (tab.route === content[i].route && tab.model.id == content[i].model.id) {
         return true;
       }
