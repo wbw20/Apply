@@ -1,5 +1,3 @@
-var tabs = [];
-
 App.ApplicationController = Ember.ArrayController.extend({
   init: function() {
     this.set('content', [{
@@ -12,7 +10,6 @@ App.ApplicationController = Ember.ArrayController.extend({
   },
   open: function(tab) {
     if (!this.contains(tab)) {
-      tabs.push(tab);
       this.pushObject(tab);
     }
 
