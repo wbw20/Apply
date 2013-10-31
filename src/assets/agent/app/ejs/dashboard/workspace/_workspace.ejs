@@ -2,13 +2,11 @@
   <ul class="list-group">
     {{#each model}}
       {{#view App.WorkspaceRowView}}
-        {{#linkTo 'submission' this}}
-          <li class="list-group-item">
-            <span>
-              {{applicant.first}} {{applicant.last}}
-            </span>
-          </li>
-        {{/linkTo}}
+        <li class="list-group-item" {{action 'open' this}}>
+          <span>
+            {{applicant.first}} {{applicant.last}}
+          </span>
+        </li>
       {{/view}}
     {{/each}}
   <ul>

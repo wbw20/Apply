@@ -36,7 +36,8 @@ App.SubmissionRoute = Ember.Route.extend({
     }).fetch();
   },
   renderTemplate: function(controller, model) {
-    this.controllerFor('application').newtab(model);
+    debugger
+    // this.controllerFor('application').newtab(model);
     this.render({
       outlet: 'dashboard'
     });

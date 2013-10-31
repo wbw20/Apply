@@ -9,6 +9,9 @@ App.ApplicationController = Ember.ArrayController.extend({
     }
   },
   open: function(tab) {
-    this.transitionToRoute(tab.route);
+    if (tab.model) {
+      this.newtab(tab.model);
+      this.transitionToRoute(tab.route, tab.model);
+    }
   }
 });
