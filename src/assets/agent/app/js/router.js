@@ -1,9 +1,9 @@
 App.Router.map(function() {
+  this.resource('profile');
   this.resource('workspace');
   this.resource('submissions', function() {
     this.resource('submission', { path: "/:submission_id" });
   });
-  this.resource('profile');
 });
 
 App.SubmissionRoute = Ember.Route.extend({
