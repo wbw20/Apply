@@ -1,10 +1,10 @@
 App.ApplicationController = Ember.ArrayController.extend({
   init: function() {
     this.set('content', [{
-      name: "home",
+      name: "Home",
       route: "index"
     }, {
-      name: "new",
+      name: "New",
       route: "new"
     }]);
   },
