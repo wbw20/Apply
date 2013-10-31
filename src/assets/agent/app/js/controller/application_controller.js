@@ -11,9 +11,10 @@ App.ApplicationController = Ember.ArrayController.extend({
   open: function(tab) {
     if (!this.contains(tab)) {
       this.pushObject(tab);
+      this.transitionToRoute(tab.route, tab.model);
+    } else {
+      this.transitionToRoute(tab.route);
     }
-
-    this.transitionToRoute(tab.route, tab.model);
   },
   contains: function(newtab) {
     var content = this.get('content');
