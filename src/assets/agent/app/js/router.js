@@ -1,9 +1,15 @@
 App.Router.map(function() {
+  this.route('new');
   this.resource('profile');
   this.resource('workspace');
   this.resource('submissions', function() {
     this.resource('submission', { path: "/:submission_id" });
   });
+});
+
+App.NewRoute = Ember.Route.extend({
+  renderTemplate: function(controller) {
+  }
 });
 
 App.SubmissionRoute = Ember.Route.extend({
