@@ -8,12 +8,9 @@ App.ApplicationController = Ember.ArrayController.extend({
       route: "new"
     }]);
   },
-  newtab: function(model) {
-    this.set('content', []);
-  },
   open: function(tab) {
     if (tab.model) {
-      this.newtab(tab.model);
+      this.pushObject(tab);
       this.transitionToRoute(tab.route, tab.model);
     }
   }
