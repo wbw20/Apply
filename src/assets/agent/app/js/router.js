@@ -15,6 +15,14 @@ App.NewRoute = Ember.Route.extend({
   }
 });
 
+App.ProfileRoute = Ember.Route.extend({
+  renderTemplate: function(controller) {
+    this.render({
+      outlet: 'dashboard'
+    });
+  }
+});
+
 App.SubmissionRoute = Ember.Route.extend({
   model: function(params) {
     console.log(params.submission_id);
