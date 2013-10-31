@@ -11,18 +11,17 @@ App.ApplicationController = Ember.ArrayController.extend({
   open: function(tab) {
     if (!this.contains(tab)) {
       this.pushObject(tab);
-      this.transitionToRoute(tab.route, tab.model);
-    } else {
-      this.transitionToRoute(tab.route);
     }
+
+    this.transitionToRoute(tab.route, tab.model);
   },
-  contains: function(newtab) {
+  contains: function(tab) {
     var content = this.get('content');
     for (i=0; i < content.length; i++) {
-      if (!newtab.model) {
-        return this._super(newtab);
+      if (!tab.model) {
+        return this._super(tab);
       }
-      if (newtab.route === content[i].route && newtab.model.id == content[i].model.id) {
+      if (tab.route === content[i].route && tab.model.id == content[i].model.id) {
         return true;
       }
     }
