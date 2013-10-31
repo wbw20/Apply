@@ -6,17 +6,6 @@ App.Router.map(function() {
   this.resource('profile');
 });
 
-App.WorkspaceRoute = Ember.Route.extend({
-  model: function() {
-    return App.Submission.create().fetch();
-  },
-  renderTemplate: function() {
-    this.render({
-      outlet: 'dashboard'
-    });
-  }
-});
-
 App.SubmissionRoute = Ember.Route.extend({
   model: function(params) {
     console.log(params.submission_id);
@@ -26,6 +15,17 @@ App.SubmissionRoute = Ember.Route.extend({
   },
   renderTemplate: function(controller, model) {
     // this.controllerFor('application').newtab(model);
+    this.render({
+      outlet: 'dashboard'
+    });
+  }
+});
+
+App.WorkspaceRoute = Ember.Route.extend({
+  model: function() {
+    return App.Submission.create().fetch();
+  },
+  renderTemplate: function() {
     this.render({
       outlet: 'dashboard'
     });
