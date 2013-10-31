@@ -9,9 +9,10 @@ App.ApplicationController = Ember.ArrayController.extend({
     }]);
   },
   open: function(tab) {
-    if (tab.model) {
+    if (!this.contains(tab)) {
       this.pushObject(tab);
-      this.transitionToRoute(tab.route, tab.model);
     }
+
+    this.transitionToRoute(tab.route, tab.model);
   }
 });
