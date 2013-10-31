@@ -9,6 +9,9 @@ App.Router.map(function() {
 
 App.NewRoute = Ember.Route.extend({
   renderTemplate: function(controller) {
+    this.render({
+      outlet: 'dashboard'
+    });
   }
 });
 
