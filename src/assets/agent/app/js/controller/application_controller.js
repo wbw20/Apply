@@ -18,6 +18,9 @@ App.ApplicationController = Ember.ArrayController.extend({
   contains: function(newtab) {
     var content = this.get('content');
     for (i=0; i < content.length; i++) {
+      if (!newtab.model) {
+        return this._super(newtab);
+      }
       if (newtab.route === content[i].route && newtab.model.id == content[i].model.id) {
         return true;
       }
