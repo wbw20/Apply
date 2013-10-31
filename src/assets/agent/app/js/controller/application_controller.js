@@ -1,12 +1,15 @@
 App.ApplicationController = Ember.ArrayController.extend({
+  init: function() {
+    this.set('content', [{
+      name: "home",
+      route: "index"
+    }, {
+      name: "new",
+      route: "new"
+    }]);
+  },
   newtab: function(model) {
-    if (this.get('tabs').indexOf(model) != -1) {
-      $('#firsttab').after('<li class="active">' +
-                             '<a href="#/submissions/' + model.id + '">' + model.applicant.first +
-                             ' ' + model.applicant.last + '</a>' +
-                           '</li>');
-      this.get('tabs').push(model);
-    }
+    this.set('content', []);
   },
   open: function(tab) {
     if (tab.model) {

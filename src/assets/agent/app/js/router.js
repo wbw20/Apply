@@ -8,13 +8,7 @@ App.Router.map(function() {
 
 App.ApplicationRoute = Ember.Route.extend({
   setupController: function(controller) {
-    controller.set('tabs', [{
-      name: "home",
-      route: "index"
-    }, {
-      name: "new",
-      route: "new"
-    }]);
+    // controller.set('tabs', );
   }
 });
 
@@ -31,12 +25,12 @@ App.WorkspaceRoute = Ember.Route.extend({
 
 App.SubmissionRoute = Ember.Route.extend({
   model: function(params) {
+    console.log(params.submission_id);
     return App.Submission.create({
       id: params.submission_id
     }).fetch();
   },
   renderTemplate: function(controller, model) {
-    debugger
     // this.controllerFor('application').newtab(model);
     this.render({
       outlet: 'dashboard'
