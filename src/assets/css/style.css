@@ -46,6 +46,10 @@ ul.pill {
   display: inline-block;
 }
 
+li.pill {
+  margin-top: 35px;
+}
+
 .icon {
   height: 32px;
   width: 32px;
@@ -53,7 +57,12 @@ ul.pill {
 
 .icon.icon-sidebar {
   margin: 0 auto;
-  margin-top: 35px;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background-color: #e6e6e6;
 }
 
 /* Image Assets */
