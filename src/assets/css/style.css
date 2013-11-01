@@ -52,8 +52,8 @@ html, body {
 }
 
 /* Image Assets */
-.icon-menu {
-  background-image:url('/icons/menu.png');
+.icon-workspace {
+  background-image:url('/icons/workspace.png');
 }
 
 /* Ember hacks */
