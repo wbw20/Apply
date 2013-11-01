@@ -37,7 +37,7 @@ html, body {
 .sidebar {
   background-color: #f8f8f8;
   float: left;
-  width: 150px;
+  width: 110px;
   height: 100%;
 }
 
@@ -48,10 +48,14 @@ html, body {
 
 .icon.icon-sidebar {
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 35px;
 }
 
 /* Image Assets */
+.icon-profile {
+  background-image:url('/icons/profile.png');
+}
+
 .icon-workspace {
   background-image:url('/icons/workspace.png');
 }
