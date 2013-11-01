@@ -41,6 +41,21 @@ html, body {
   height: 100%;
 }
 
+.icon {
+  height: 32px;
+  width: 32px;
+}
+
+.icon.icon-sidebar {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+/* Image Assets */
+.icon-menu {
+  background-image:url('/icons/menu.png');
+}
+
 /* Ember hacks */
 .ember-view {
   height: 100%;
