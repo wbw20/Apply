@@ -1,9 +1,16 @@
 <div class="sidebar">
 <div class="header"></div>
-  {{#linkTo 'workspace'}}
-    <div class="icon icon-sidebar icon-workspace"></div>
-  {{/linkTo}} <br>
-  {{#linkTo 'profile'}}
-    <div class="icon icon-sidebar icon-profile"></div>
-  {{/linkTo}} <br>
+  <ul class="nav nav-pills">
+    <li class="active">
+      {{#linkTo 'workspace'}}
+        <div class="icon icon-sidebar icon-workspace"></div>
+      {{/linkTo}}
+    </li>
+    <br>
+    <li>
+      {{#linkTo 'profile'}}
+        <div class="icon icon-sidebar icon-profile"></div>
+      {{/linkTo}}
+    </li>
+  </ul>
 </div>
