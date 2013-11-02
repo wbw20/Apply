@@ -1,11 +1,12 @@
 <div class="sidebar">
 <div class="header"></div>
-  <ul class="pill nav nav-pills">
-    <li class="pill active">
-      {{#linkTo 'workspace'}}
-        <div class="icon icon-sidebar icon-workspace"></div>
-      {{/linkTo}}
-    </li>
+    {{#view App.PillView}}
+      <ul class="pill nav nav-pills">
+      <li class="pill active">
+        {{#linkTo 'workspace'}}
+          <div class="icon icon-sidebar icon-workspace"></div>
+        {{/linkTo}}
+      </li>
     <br>
     <li class="pill">
       {{#linkTo 'profile'}}
@@ -13,4 +14,5 @@
       {{/linkTo}}
     </li>
   </ul>
+      {{/view}}
 </div>
