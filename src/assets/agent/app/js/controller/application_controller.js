@@ -14,11 +14,7 @@ App.ApplicationController = Ember.ArrayController.extend({
       this.pushObject(tab);
     }
 
-    if (tab.pill) {
-      this.get('controllers.sidebar').select(tab.pill);
-    } else {
-      this.get('controllers.sidebar').select('workspace'); //default
-    }
+    this.get('controllers.sidebar').select(tab.pill);
 
     if (tab.model) {
       this.transitionToRoute(tab.route, tab.model);
