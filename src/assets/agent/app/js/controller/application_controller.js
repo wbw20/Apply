@@ -1,4 +1,5 @@
 App.ApplicationController = Ember.ArrayController.extend({
+  needs: ['sidebar'],
   init: function() {
     this.set('content', [{
       name: "Home",
@@ -11,6 +12,12 @@ App.ApplicationController = Ember.ArrayController.extend({
   open: function(tab) {
     if (!this.contains(tab)) {
       this.pushObject(tab);
+    }
+
+    if (tab.pill) {
+      this.get('controllers.sidebar').select(tab.pill);
+    } else {
+      this.get('controllers.sidebar').select('workspace'); //default
     }
 
     if (tab.model) {

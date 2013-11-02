@@ -2,13 +2,13 @@
 <div class="header"></div>
   {{#view App.PillView}}
     <ul class="pill nav nav-pills">
-      <li class="pill active">
+      <li id="workspace" class="pill active">
         {{#linkTo 'workspace'}}
           <div class="icon icon-sidebar icon-workspace"></div>
         {{/linkTo}}
       </li>
       <br>
-      <li class="pill">
+      <li id="profile" class="pill">
         {{#linkTo 'profile'}}
           <div class="icon icon-sidebar icon-profile"></div>
         {{/linkTo}}
