@@ -1,2 +1,1 @@
-App.WorkspaceRowView = App.RowView.extend({
-});
+App.WorkspaceRowView = Ember.View.extend({});

@@ -1,4 +1,5 @@
 var Submission = require('../models/models').Submission;
+var Comment = require('../models/models').Comment;
 
 function join(data) {
   var results = [];
@@ -15,11 +16,38 @@ module.exports = {
   setup: function(app) {
     app.get('/v1/submission/:id?', function(req, res) {
       if (req.id) {
+        // Mongoose pattern
+        // Submission.populate('applicant')
+        //   .populate('comments')
+        //   .exec(function(err, submission) {});
+
+        // async.js pattern
+        // var request = [
+        //   function(cb) {
+        //     Submission.find(req.id, cb);
+        //   },
+        //   function(cb) {
+        //     Applicant.find({ submission: req.id }, cb);
+        //   },
+        //   function(cb) {
+        //     Comment.find({ submission: req.id }, cb);
+        //   }
+        // ];
+        // async.parallel(request, function(data) {
+        //   data[0].applicant = data[1];
+        //   data[0].comments = data[2];
+        //   res.json(data[0]);
+        // });
         Submission.find(req.id, function(error, data) {
-          data.applicant(function(error, app) {
+          data.applicant(function(error, applicant) {
+
             var result = data.toObject();
-            result.applicant = app.toObject();
-            res.send(result);
+            result.applicant = applicant.toObject();
+            Comment.find({ submisson: req.id }, function(err, docs) {
+              debugger;
+              result.comments = docs.toObject();
+              res.send(result);
+            });
           });
         });
       } else {
@@ -36,7 +64,7 @@ module.exports = {
         } else {
           res.send(200);
         }
-      })
+      });
     });
 
     app.put('/v1/submission', function(req, res) {
@@ -44,3 +72,16 @@ module.exports = {
     });
   }
 };
+
+
+        Submission.find(1, function(error, data) {
+          data.applicant(function(error, applicant) {
+
+            var result = data.toObject();
+            result.applicant = applicant.toObject();
+            Comment.find({ submisson: 1 }, function(err, docs) {
+              debugger;
+              result.comments = docs.toObject();
+            });
+          });
+        });

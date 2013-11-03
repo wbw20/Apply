@@ -3,4 +3,23 @@
   <br><br>
 
   Sobmitted:  {{submitted}}<br>
+
+  <ul>
+    <!-- comments -->
+    {{#collection contentBinding="applicant.comments"}}
+      <li>{{comment.body}}</li>
+    {{/collection}}
+  </ul>
+  <form>
+    <!-- comments form -->
+    <label for="title">Title</label>
+    {{input type="text" value=newComment.title name="title"}}
+    <p>{{newComment.title}}</p>
+    <br/>
+    <label for="body">Body</label>
+    {{textarea value=newComment.body name="body"}}
+    <p>{{newComment.body}}</p>
+    <br/>
+    <button {{action 'submit' newComment}}>Submit</button>
+  </form>
 </script>

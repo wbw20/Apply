@@ -37,6 +37,7 @@ app.param('id', function(req, res, next, id) {
 require('./controllers/submission_controller').setup(app);
 require('./controllers/agent_controller').setup(app);
 require('./controllers/applicant_controller').setup(app);
+require('./controllers/comment_controller').setup(app);
 
 dao.autoupdate(function() {
 });

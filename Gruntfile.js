@@ -1,6 +1,9 @@
 module.exports = function(grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.initConfig({
+    // load package
+    pkg: grunt.file.readJSON('package.json'),
+
     // concat js and html in assets folder
     concat: {
       dist: {
@@ -10,9 +13,11 @@ module.exports = function(grunt) {
           'src/assets/agent/app/js/**/**/*.js',
           'src/assets/agent/app/js/**/**/**/*.js'
         ],
-        dest: 'src/dist/built.js',
+        dest: 'src/assets//built/agent.js',
       },
     },
+
+    // watch files and re-build
     watch: {
       scripts: {
         files: [
@@ -24,7 +29,9 @@ module.exports = function(grunt) {
         tasks: ['concat']
       }
     }
+
     // TODO: run tests
+    
   });
 
   grunt.registerTask('default', ['concat']);
