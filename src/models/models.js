@@ -1,6 +1,6 @@
 var Submission = require('./submission').Submission,
     Applicant = require('./applicant').Applicant,
-    Comment = require('./submission_comment').SubmissionComment;
+    SubmissionComment = require('./submission_comment').SubmissionComment;
 
 Submission.belongsTo('applicant', {
   model: Applicant
@@ -18,12 +18,12 @@ SubmissionComment.belongsTo('agent', {
   foreignKey: 'agentId'
 });
 
-Submission.hasMany('comments', {
+Submission.hasMany('submission_comments', {
+  as: 'comments',
   foreignKey: 'submissionId'
 });
 
 module.exports = {
   Applicant  : Applicant,
-  Submission : Submission,
-  Comment    : Comment
+  Submission : Submission
 };
