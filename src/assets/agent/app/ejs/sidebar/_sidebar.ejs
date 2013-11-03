@@ -1,5 +1,18 @@
 <div class="sidebar">
 <div class="header"></div>
-  {{#linkTo 'workspace'}}Workspace{{/linkTo}} <br>
-  {{#linkTo 'profile'}}Profile{{/linkTo}}
+  {{#view App.PillView}}
+    <ul class="pill nav nav-pills">
+      <li id="workspace" class="pill">
+        {{#linkTo 'workspace'}}
+          <div class="icon icon-sidebar icon-workspace"></div>
+        {{/linkTo}}
+      </li>
+      <br>
+      <li id="profile" class="pill">
+        {{#linkTo 'profile'}}
+          <div class="icon icon-sidebar icon-profile"></div>
+        {{/linkTo}}
+      </li>
+    </ul>
+  {{/view}}
 </div>
