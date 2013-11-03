@@ -1,9 +1,7 @@
-<span>
-  <ul id="tabroot" class="nav nav-tabs nav-bar">
-    {{#each}}
-      <li id="firsttab" class="active">
-        <a href='#' {{action 'open' this}}>{{name}}</a>
-      </li>
-    {{/each}}
-  </ul>
-</span>
+<ul id="tabroot" class="nav nav-tabs nav-bar">
+  {{#each}}
+    <li id="firsttab" class="active">
+      <a href='#' {{action 'open' this}}>{{name}}</a>
+    </li>
+  {{/each}}
+</ul>
