@@ -10,7 +10,7 @@ module.exports = function(grunt) {
           'src/assets/agent/app/js/**/**/*.js',
           'src/assets/agent/app/js/**/**/**/*.js'
         ],
-        dest: 'src/dist/built.js',
+        dest: 'src/assets/built/agent.js',
       },
     },
     watch: {
