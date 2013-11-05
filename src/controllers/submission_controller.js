@@ -16,31 +16,8 @@ module.exports = {
   setup: function(app) {
     app.get('/v1/submission/:id?', function(req, res) {
       if (req.id) {
-        // Mongoose pattern
-        // Submission.populate('applicant')
-        //   .populate('comments')
-        //   .exec(function(err, submission) {});
-
-        // async.js pattern
-        // var request = [
-        //   function(cb) {
-        //     Submission.find(req.id, cb);
-        //   },
-        //   function(cb) {
-        //     Applicant.find({ submission: req.id }, cb);
-        //   },
-        //   function(cb) {
-        //     Comment.find({ submission: req.id }, cb);
-        //   }
-        // ];
-        // async.parallel(request, function(data) {
-        //   data[0].applicant = data[1];
-        //   data[0].comments = data[2];
-        //   res.json(data[0]);
-        // });
         Submission.find(req.id, function(error, data) {
           data.applicant(function(error, applicant) {
-
             var result = data.toObject();
             result.applicant = applicant.toObject();
             result.comments = [
@@ -53,8 +30,10 @@ module.exports = {
           });
         });
       } else {
-        Submission.all({ include: 'applicant' }, function(error, data) {
-          res.send(join(data));
+        Submission.all({ include: ['applicant'] }, function(error, data) {
+          Submission.include(join(data), 'submission_comments', function(error, results) {
+            res.send(join(results));
+          });
         });
       }
     });
@@ -74,6 +53,7 @@ module.exports = {
     });
   }
 };
+<<<<<<< HEAD
 
 
         // Submission.find(1, function(error, data) {
@@ -87,3 +67,5 @@ module.exports = {
         //     });
         //   });
         // });
+=======
+>>>>>>> 8fa138c861ac8c11ad576cc40c73ae57f047cb72
