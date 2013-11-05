@@ -56,7 +56,7 @@ module.exports = function(grunt) {
         dest: 'src/assets/built/agent.js',
         options: {
           barename: 'apply',
-          namespace: "Apply"
+          namespace: "App"
         }
       }
     }
