@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       output.push.apply(output, f.src.map(grunt.file.read));
    
       output.push(grunt.template.process(
-        'window.<%= namespace %> = requireModule("<%= barename %>");', { 
+        'window.<%= namespace %> = requireModule("<%= barename %>").App;', { 
         data: {
           namespace: opts.namespace,
           barename: opts.barename
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
             ],
         dest: 'src/assets/built/agent.js',
         options: {
-          barename: 'application',
+          barename: 'index',
           namespace: "App"
         }
       }

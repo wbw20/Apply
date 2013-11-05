@@ -1,4 +1,4 @@
-import { App } from '../application';
+import { App } from 'application';
 
 App.WorkspaceController = Ember.Controller.extend({
   needs: ['application'],

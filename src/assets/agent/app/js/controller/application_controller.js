@@ -1,4 +1,4 @@
-import { App } from '../application';
+import { App } from 'application';
 
 App.ApplicationController = Ember.ArrayController.extend({
   needs: ['sidebar'],
@@ -31,7 +31,7 @@ App.ApplicationController = Ember.ArrayController.extend({
       return this._super(tab);
     }
 
-    for (i=0; i < content.length; i++) {
+    for (var i=0; i < content.length; i++) {
       if (tab.route === content[i].route && tab.model.id == content[i].model.id) {
         return true;
       }
