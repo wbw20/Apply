@@ -1,4 +1,4 @@
-import { App } from '../../../application'
+import { App } from '../../../application';
 
 App.WorkspaceRowView = App.RowView.extend({
 });

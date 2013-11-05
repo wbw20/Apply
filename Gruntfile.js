@@ -65,6 +65,7 @@ module.exports = function(grunt) {
     browser: {
       dist: {
           src: [
+            'src/assets/lib/loader.js',
             'tmp/*.amd.js',
             'tmp/**/*.amd.js',
             'tmp/**/**/*.amd.js',
@@ -72,7 +73,7 @@ module.exports = function(grunt) {
             ],
         dest: 'src/assets/built/agent.js',
         options: {
-          barename: 'index',
+          barename: 'application',
           namespace: "App"
         }
       }
