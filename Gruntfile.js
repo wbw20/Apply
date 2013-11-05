@@ -45,17 +45,30 @@ module.exports = function(grunt) {
         tasks: ['concat']
       }
     },
+    transpile: {
+      amd: {
+        type: 'amd',
+        files: [{
+          expand: true,
+          cwd: 'src/assets/agent/app/js/',
+          src: [
+            'application.js',
+            'router.js'
+            // '**/*.js',
+            // '**/**/*.js',
+            // '**/**/**/*.js'
+          ],
+          dest: 'tmp/',
+          ext: '.amd.js'
+        }]
+      }
+    },
     browser: {
       dist: {
-        src: [
-          'src/assets/agent/app/js/*.js',
-          'src/assets/agent/app/js/**/*.js',
-          'src/assets/agent/app/js/**/**/*.js',
-          'src/assets/agent/app/js/**/**/**/*.js'
-        ],
+        src: '/tmp/*.js',
         dest: 'src/assets/built/agent.js',
         options: {
-          barename: 'apply',
+          barename: 'index',
           namespace: "App"
         }
       }
@@ -63,6 +76,6 @@ module.exports = function(grunt) {
     // TODO: run tests
   });
 
-  grunt.registerTask('default', ['browser']);
-  grunt.registerTask('server', ['browser', 'watch']);
+  grunt.registerTask('default', ['transpile']);
+  grunt.registerTask('server', ['transpile', 'watch']);
 };

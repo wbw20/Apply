@@ -1,3 +1,4 @@
+import { App } from './application' 
 App.Router.map(function() {
   this.route('new');
   this.resource('profile');
