@@ -22,18 +22,6 @@ module.exports = function(grunt) {
   });
 
   grunt.initConfig({
-    // concat js and html in assets folder
-    concat: {
-      dist: {
-        src: [
-          'src/assets/agent/app/js/*.js',
-          'src/assets/agent/app/js/**/*.js',
-          'src/assets/agent/app/js/**/**/*.js',
-          'src/assets/agent/app/js/**/**/**/*.js'
-        ],
-        dest: 'src/assets/built/agent.js',
-      },
-    },
     watch: {
       scripts: {
         files: [
@@ -42,7 +30,7 @@ module.exports = function(grunt) {
           'src/assets/agent/app/js/**/**/*.js',
           'src/assets/agent/app/js/**/**/**/*.js'
         ],
-        tasks: ['concat']
+        tasks: ['transpile', 'browser']
       }
     },
     transpile: {
