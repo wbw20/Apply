@@ -1,44 +1,66 @@
-App.SubmissionController = Ember.ObjectController.extend({
-  newComment: {},
-  errors: {},
-  submit: function(comment) {
-      // show loading icon
-      // maybe: this.showLoading();
+$(document).ready(function(){
+  App.SubmissionController = Ember.ObjectController.extend({
+    newComment: {},
+    errors: {},
+    init: function() {
+    },
+    submit: function() {
+        // show loading icon
+        // maybe: this.showLoading();
+        var view = this;
+        var comment = {
+          title:this.get('title'),
+          body: this.get('body')
+        };
+        // validate
+        if(this.validate(comment)) {
 
-      // validate
-      if(this.validate(comment)) {
-          
-          // send to server
-          App.Comment.create(comment)
-            .save()
-            .done(function(){
-              // hide loading icon
-              // maybe: this.hideLoading();
+            // add new comment to comments array
+            this.get('content').comments.pushObject(comment);
 
-              // refresh page
-              // location.refresh();              
-            });
-      } else {
-          // hide loading icon
-          // maybe: this.hideLoading();
-          this.showErrors();
-      }
-  },
-  validate: function(comment) {
-      for (var i in comment) {
-          if(comment[i] === '') {
-              this.errors.push({
-                  input: i,
-                  error: 'did not validate'
-              });
-              return false;
-          }
-      }
-      // if no errors
-      return true;
-  },
-  showErrors: function(){
-      // show errors on correct inputs
-      // if input is not in this.errors remove error if its in the DOM
-  }
+            // update server
+
+            // hide loading icon
+            // maybe: this.hideLoading();
+
+            // clear form
+            // this.set('newCommment', {});
+            this.set('title', '');
+            this.set('body', '');
+        } else {
+            // hide loading icon
+            // maybe: this.hideLoading();
+            this.showErrors();
+        }
+    },
+    validate: function(comment) {
+        for (var i in comment) {
+            if(comment[i] === '') {
+                this.errors.push({
+                    input: i,
+                    error: 'did not validate'
+                });
+                return false;
+            }
+        }
+        // if no errors
+        return true;
+    },
+    showErrors: function(){
+        // show errors on correct inputs
+        // if input is not in this.errors remove error if its in the DOM
+    }
+  });
+
+  App.CommentController = Ember.ResourceCollection.create({
+    type: App.Comment,
+    init: function(){
+    },
+    createComment: function(comment) {
+      var comment = App.CommentController.create(comment);
+      comment.save().done(function(){
+        debugger;
+      });
+    }
+  });
 });

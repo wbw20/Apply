@@ -43,11 +43,13 @@ module.exports = {
 
             var result = data.toObject();
             result.applicant = applicant.toObject();
-            Comment.find({ submisson: req.id }, function(err, docs) {
-              debugger;
-              result.comments = docs.toObject();
-              res.send(result);
-            });
+            result.comments = [
+              {
+                title: 'test',
+                body: 'comment'
+              }
+            ];
+            res.send(result);
           });
         });
       } else {
@@ -74,14 +76,14 @@ module.exports = {
 };
 
 
-        Submission.find(1, function(error, data) {
-          data.applicant(function(error, applicant) {
+        // Submission.find(1, function(error, data) {
+        //   data.applicant(function(error, applicant) {
 
-            var result = data.toObject();
-            result.applicant = applicant.toObject();
-            Comment.find({ submisson: 1 }, function(err, docs) {
-              debugger;
-              result.comments = docs.toObject();
-            });
-          });
-        });
+        //     var result = data.toObject();
+        //     result.applicant = applicant.toObject();
+        //     Comment.find({ submisson: 1 }, function(err, docs) {
+        //       debugger;
+        //       result.comments = docs.toObject();
+        //     });
+        //   });
+        // });

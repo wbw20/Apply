@@ -14,7 +14,7 @@ module.exports = {
       }
     });
 
-    app.post('/v1/comments', function(req, res) {
+    app.post('/v1/submission/:id?/comments', function(req, res) {
       Comment.create(req.body, function(error, doc) {
         if (error) {
           res.send(500, error);
