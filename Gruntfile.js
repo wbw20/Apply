@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     },
     browser: {
       dist: {
-        src: '/tmp/*.js',
+        src: 'tmp/*.amd.js',
         dest: 'src/assets/built/agent.js',
         options: {
           barename: 'index',
@@ -77,5 +77,5 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', ['transpile']);
-  grunt.registerTask('server', ['transpile', 'watch']);
+  grunt.registerTask('server', ['transpile', 'browser', 'watch']);
 };
