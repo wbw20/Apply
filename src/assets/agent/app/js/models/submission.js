@@ -1,3 +1,5 @@
+import { App } from '../application'
+
 App.Submission = Ember.Resource.define({
   url: '/v1/submission',
   schema: {

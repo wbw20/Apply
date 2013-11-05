@@ -1,3 +1,5 @@
+import { App } from '../application'
+
 App.ApplicationController = Ember.ArrayController.extend({
   needs: ['sidebar'],
   init: function() {
