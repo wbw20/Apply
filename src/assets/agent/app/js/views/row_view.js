@@ -8,5 +8,5 @@ App.RowView = Ember.View.extend({
 
   mouseLeave: function(event) {
     $(event.target).removeClass('focused');
-  } 
+  }
 });
