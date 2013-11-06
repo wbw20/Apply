@@ -8,15 +8,24 @@ App.SubmissionController = Ember.ObjectController.extend({
       // show loading icon
       // maybe: this.showLoading();
       var view = this;
-      var comment = {
-        title: this.get('title'),
-        body: this.get('body')
-      };
+      // var comment = {
+      //   title: this.get('title'),
+      //   body: this.get('body')
+      // };
       // validate
-      if(this.validate(comment)) {
+      // if(this.validate(comment)) {
 
           // add new comment to comments array
-          this.get('content').submission_comments.pushObject(comment);
+
+          this.get('content').submission_comments.pushObject({
+            title: this.get('title'),
+            body:  this.get('body')
+          });
+
+          var submission = App.Submission.create(this.get('content'));
+
+          submission.save().done(function() {
+          });
 
           // update server
 
@@ -27,11 +36,11 @@ App.SubmissionController = Ember.ObjectController.extend({
           // this.set('newCommment', {});
           this.set('title', '');
           this.set('body', '');
-      } else {
-          // hide loading icon
-          // maybe: this.hideLoading();
-          this.showErrors();
-      }
+      // } else {
+      //     // hide loading icon
+      //     // maybe: this.hideLoading();
+      //     this.showErrors();
+      // }
   },
   validate: function(comment) {
       for (var i in comment) {
