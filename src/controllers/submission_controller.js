@@ -8,15 +8,15 @@ module.exports = {
       if (req.id) {
         Submission.find(req.id, function(error, data) {
           data.applicant(function(error, applicant) {
-            var result = data.toObject();
-            result.applicant = applicant.toObject();
-            result.comments = [
-              {
-                title: 'test',
-                body: 'comment'
+            data.submission_comments(function(error, comments) {
+              var result = data.toObject();
+              result.applicant = applicant.toObject();
+              result.comments = [];
+              for (var i=0, l=comments.length; i<l; i++) {
+                result.comments.push(comments[i].toObject());
               }
-            ];
-            res.send(result);
+              res.send(result);
+            });
           });
         });
       } else {
