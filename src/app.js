@@ -4,8 +4,6 @@ var express = require('express'),
     fs = require('fs'),
     dao = require('./dao');
 
-var Mincer = require('mincer');
-
 var app = express();
 app.engine('.html', ejs.__express);
 app.use(express.static(__dirname + '/assets'));
@@ -13,12 +11,7 @@ app.use(express.bodyParser());
 app.set('view engine', 'html');
 app.set('views', __dirname + '/assets');
 
-var environment = new Mincer.Environment();
-environment.appendPath(__dirname + '/assets');
-
 /* Built agent assets */
-var agentjs = environment.findAsset('agent/app/js/index.js').toString();
-fs.writeFileSync(__dirname + "/assets/built/agent.js", agentjs);
 var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/ejs/index.ejs").toString(), {
   filename: __dirname + "/assets/agent/app/ejs/index.ejs"
 }).toString();

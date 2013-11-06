@@ -1,6 +1,12 @@
+import { App } from 'application';
+
 App.WorkspaceController = Ember.Controller.extend({
   needs: ['application'],
-  newtab: function(model) {
-    this.get('controllers.application').newtab(model);
+  open: function(model) {
+    this.get('controllers.application').open({
+      name: model.applicant.first + ' ' + model.applicant.last,
+      route: 'submission',
+      model: model
+    });
   }
 });

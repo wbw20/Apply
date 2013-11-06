@@ -1,1 +1,4 @@
-App.WorkspaceRowView = Ember.View.extend({});
+import { App } from 'application';
+
+App.WorkspaceRowView = App.RowView.extend({
+});

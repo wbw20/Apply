@@ -1,3 +1,5 @@
-window.App = Ember.Application.create({
+var App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
+
+export { App };
