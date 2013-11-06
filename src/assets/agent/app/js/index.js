@@ -1,6 +1,7 @@
 import 'router';
 import 'views/root_view';
 import 'views/row_view';
+import 'views/dashboard/workspace/comment_form_view';
 import 'views/dashboard/workspace/submission_view';
 import 'views/dashboard/workspace/workspace_row_view';
 import 'views/dashboard/workspace/workspace_view';
