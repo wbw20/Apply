@@ -1,7 +1,6 @@
 import { App } from 'application';
 
 App.SubmissionController = Ember.ObjectController.extend({
-  newComment: {},
   errors: {},
   init: function() {
   },
