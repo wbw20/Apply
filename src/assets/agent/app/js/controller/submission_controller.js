@@ -9,14 +9,14 @@ App.SubmissionController = Ember.ObjectController.extend({
       // maybe: this.showLoading();
       var view = this;
       var comment = {
-        title:this.get('title'),
+        title: this.get('title'),
         body: this.get('body')
       };
       // validate
       if(this.validate(comment)) {
 
           // add new comment to comments array
-          this.get('content').comments.pushObject(comment);
+          this.get('content').submission_comments.pushObject(comment);
 
           // update server
 
