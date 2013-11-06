@@ -11,9 +11,9 @@ module.exports = {
             data.submission_comments(function(error, comments) {
               var result = data.toObject();
               result.applicant = applicant.toObject();
-              result.comments = [];
+              result.submission_comments = [];
               for (var i=0, l=comments.length; i<l; i++) {
-                result.comments.push(comments[i].toObject());
+                result.submission_comments.push(comments[i].toObject());
               }
               res.send(result);
             });
