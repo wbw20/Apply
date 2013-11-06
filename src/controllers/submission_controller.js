@@ -53,19 +53,3 @@ module.exports = {
     });
   }
 };
-<<<<<<< HEAD
-
-
-        // Submission.find(1, function(error, data) {
-        //   data.applicant(function(error, applicant) {
-
-        //     var result = data.toObject();
-        //     result.applicant = applicant.toObject();
-        //     Comment.find({ submisson: 1 }, function(err, docs) {
-        //       debugger;
-        //       result.comments = docs.toObject();
-        //     });
-        //   });
-        // });
-=======
->>>>>>> 8fa138c861ac8c11ad576cc40c73ae57f047cb72
