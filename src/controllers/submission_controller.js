@@ -5,7 +5,13 @@ function join(data) {
   var results = [];
   for (var i=0, l=data.length; i<l; i++) {
     var result = data[i].toObject();
-    result.applicant = data[i].__cachedRelations.applicant.toObject();
+
+    if (data[i].__cachedRelations) {
+      for (property in data[i].__cachedRelations) {
+        result[property] = data[i].__cachedRelations[property].__data;
+      }
+    }
+
     results.push(result);
   }
 
@@ -31,9 +37,11 @@ module.exports = {
         });
       } else {
         Submission.all({ include: ['applicant'] }, function(error, data) {
-          Submission.include(join(data), 'submission_comments', function(error, results) {
-            res.send(join(results));
-          });
+          // Submission.include(data, 'submission_comments', function(error, results) {
+
+          // });
+
+            res.send(join(data));
         });
       }
     });
