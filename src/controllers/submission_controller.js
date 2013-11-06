@@ -8,7 +8,15 @@ function join(data) {
 
     if (data[i].__cachedRelations) {
       for (property in data[i].__cachedRelations) {
-        result[property] = data[i].__cachedRelations[property].__data;
+        if(Object.prototype.toString.call(data[i].__cachedRelations[property]) === '[object Array]') {
+          var relations = [];
+          for (var j=0, p=data[i].__cachedRelations[property].length; j<p; j++) {
+            relations.push(data[i].__cachedRelations[property][j].__data);
+          }
+          result[property] = relations;
+        } else {
+          result[property] = data[i].__cachedRelations[property].__data;
+        }
       }
     }
 
@@ -37,11 +45,9 @@ module.exports = {
         });
       } else {
         Submission.all({ include: ['applicant'] }, function(error, data) {
-          // Submission.include(data, 'submission_comments', function(error, results) {
-
-          // });
-
+          Submission.include(data, 'submission_comments', function(error, results) {
             res.send(join(data));
+          });
         });
       }
     });
