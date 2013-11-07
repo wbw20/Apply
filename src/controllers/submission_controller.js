@@ -51,7 +51,15 @@ module.exports = {
     });
 
     app.post('/v1/submission/:id/comment', function(req, res) {
-      //TODO
+      Submission.find(req.id, function(error, data) {
+        data.submission_comments.create(req.body, function(error) {
+          if (error) {
+            res.send(500, error);
+          } else {
+            res.send(200);
+          }
+        });
+      });
     });
 
     app.put('/v1/submission/:id/comment', function(req, res) {
