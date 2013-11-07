@@ -7,7 +7,7 @@ App.SubmissionController = Ember.ObjectController.extend({
   submit: function() {
       // show loading icon
       // maybe: this.showLoading();
-      var view = this;
+      // var view = this;
       // var comment = {
       //   title: this.get('title'),
       //   body: this.get('body')
@@ -17,25 +17,35 @@ App.SubmissionController = Ember.ObjectController.extend({
 
           // add new comment to comments array
 
-          this.get('content').submission_comments.pushObject({
+          // this.get('content').submission_comments.pushObject({
+          //   title: this.get('title'),
+          //   body:  this.get('body')
+          // });
+          // this.get('content').save();
+
+          var submission = this.get('content');
+
+          var comment = App.SubmissionComment.create({
             title: this.get('title'),
-            body:  this.get('body')
+            body:  this.get('body'),
+            submissionId: submission.id
           });
 
-          var submission = App.Submission.create(this.get('content'));
-
-          submission.save().done(function() {
+          comment.save().done(function() {
+            this.get('content').submission_comments.pushObject(comment);
+            this.set('title', '');
+            this.set('body', '');
           });
 
-          // update server
+          // debugger
 
           // hide loading icon
           // maybe: this.hideLoading();
 
           // clear form
           // this.set('newCommment', {});
-          this.set('title', '');
-          this.set('body', '');
+          // this.set('title', '');
+          // this.set('body', '');
       // } else {
       //     // hide loading icon
       //     // maybe: this.hideLoading();

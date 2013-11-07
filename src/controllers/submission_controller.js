@@ -50,8 +50,8 @@ module.exports = {
       });
     });
 
-    app.post('/v1/submission/:id/comment', function(req, res) {
-      Submission.find(req.id, function(error, data) {
+    app.post('/v1/submission/comment', function(req, res) {
+      Submission.find(req.body.submissionId, function(error, data) {
         data.submission_comments.create(req.body, function(error) {
           if (error) {
             res.send(500, error);
