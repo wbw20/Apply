@@ -38,7 +38,23 @@ module.exports = {
       });
     });
 
-    app.put('/v1/submission', function(req, res) {
+    app.put('/v1/submission/:id', function(req, res) {
+      //TODO
+    });
+
+    app.get('/v1/submission/:id/comment', function(req, res) {
+      Submission.find(req.id, function(error, data) {
+        data.submission_comments(function(error, comments) {
+          res.send(comments);
+        });
+      });
+    });
+
+    app.post('/v1/submission/:id/comment', function(req, res) {
+      //TODO
+    });
+
+    app.put('/v1/submission/:id/comment', function(req, res) {
       //TODO
     });
   }
