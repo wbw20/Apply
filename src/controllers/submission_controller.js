@@ -62,7 +62,7 @@ module.exports = {
       });
     });
 
-    app.put('/v1/submission/:id/comment', function(req, res) {
+    app.put('/v1/submission/comment', function(req, res) {
       //TODO
     });
   }
