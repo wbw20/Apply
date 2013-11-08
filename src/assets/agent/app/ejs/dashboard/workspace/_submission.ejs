@@ -1,26 +1,12 @@
 <script type="text/x-handlebars" data-template-name="submission">
   <h2>Submission from {{applicant.first}} {{applicant.last}}</h2>
   <br><br>
-  Submitted:  {{submitted}}<br>
-  <!-- comments -->
-  <ul>
+  Submitted:  {{submitted}}
+  <br>
+
   {{#each comment in submission_comments}}
-    <li>
-      {{comment.body}}
-    </li>
+    fuck!
   {{/each}}
-  </ul>
 
-  {{view App.CommentFormView}}
-</script>
-<script type="text/x-handlebars" data-template-name="comment_form">
-  <form>
-    <!-- comments form -->
-
-    <label for="body">Body</label>
-    {{view Ember.TextField valueBinding='body' name="body"}}
-    <br/>
-
-    <button {{action 'submit' newComment}}>Submit</button>
-  </form>
+  {{view App.CommentsView contentBinding="submission_comments"}}
 </script>
