@@ -5,7 +5,6 @@ App.SubmissionComment = Ember.Resource.define({
   schema: {
     id:   Number,
     created: Date,
-    title: String,
     body: String,
     submissionId: Number,
     agentId: Number

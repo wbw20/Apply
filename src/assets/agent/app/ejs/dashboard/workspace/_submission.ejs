@@ -6,7 +6,6 @@
   <ul>
   {{#each comment in submission_comments}}
     <li>
-      {{comment.title}}<br/>
       {{comment.body}}
     </li>
   {{/each}}
@@ -17,10 +16,6 @@
 <script type="text/x-handlebars" data-template-name="comment_form">
   <form>
     <!-- comments form -->
-
-    <label for="title">Title</label>
-    {{view Ember.TextField type="text" valueBinding='title' name="title"}}
-    <br/>
 
     <label for="body">Body</label>
     {{view Ember.TextField valueBinding='body' name="body"}}
