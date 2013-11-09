@@ -4,6 +4,11 @@ html, body {
 }
 
 /* Classes */
+.comment-area {
+  height: 100px;
+  width: 600px;
+  resize: none;
+}
 .dashboard {
   float: left;
   padding-top: 30px;
