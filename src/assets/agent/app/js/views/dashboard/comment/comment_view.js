@@ -2,7 +2,7 @@ import { App } from 'application';
 
 App.CommentView = Ember.View.extend({
   templateName: 'comment',
-  tagName: 'em'
+  tagName: 'li'
 });
 
 App.CommentArea = Ember.TextArea.extend({
@@ -11,6 +11,6 @@ App.CommentArea = Ember.TextArea.extend({
 })
 
 App.CommentListView = Ember.CollectionView.extend({
-  tagName: 'em',
+  tagName: 'ul',
   itemViewClass: App.CommentView
 });
