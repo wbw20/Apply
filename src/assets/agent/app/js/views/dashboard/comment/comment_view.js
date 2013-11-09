@@ -6,7 +6,8 @@ App.CommentView = Ember.View.extend({
 });
 
 App.CommentArea = Ember.TextArea.extend({
-  classNames: ['comment-area']
+  classNames: ['comment-area'],
+  placeholder: 'Add a comment...'
 })
 
 App.CommentListView = Ember.CollectionView.extend({
