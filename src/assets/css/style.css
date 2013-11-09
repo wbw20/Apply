@@ -9,10 +9,22 @@ ul, li {
 }
 
 /* Classes */
+.btn-primary {
+  color: #ffffff;
+  background-color: #ff7659;
+  border-color: #ff6140;
+}
+
+.btn-primary:hover {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
 .comment-area {
   height: 100px;
   width: 800px;
   resize: none;
+  margin-bottom: 25px;
 }
 
 .comments {
