@@ -9,6 +9,11 @@ html, body {
   width: 600px;
   resize: none;
 }
+
+.comments {
+  margin-left: 50px;
+}
+
 .dashboard {
   float: left;
   padding-top: 30px;
