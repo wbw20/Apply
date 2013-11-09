@@ -11,12 +11,16 @@ ul, li {
 /* Classes */
 .comment-area {
   height: 100px;
-  width: 600px;
+  width: 800px;
   resize: none;
 }
 
 .comments {
   margin-left: 50px;
+}
+
+.comment {
+  width: 800px;
 }
 
 .dashboard {
@@ -60,6 +64,11 @@ ul, li {
 
 ul.pill {
   display: inline-block;
+}
+
+ul.noindent {
+  margin-left: 0px;
+  padding-left: 0px;
 }
 
 li.pill {
