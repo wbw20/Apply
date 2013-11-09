@@ -1,12 +1,10 @@
 <script type="text/x-handlebars" data-template-name="workspace">
   <ul class="list-group">
     {{#each model}}
-      {{#view App.WorkspaceRowView}}
-        <li class="list-group-item" {{action 'open' this}}>
-          <span>
-            {{applicant.first}} {{applicant.last}}
-          </span>
-        </li>
+      {{#view App.WorkspaceRowView valueBinding=this}}
+        <span>
+          {{applicant.first}} {{applicant.last}}
+        </span>
       {{/view}}
     {{/each}}
   <ul>

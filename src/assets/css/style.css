@@ -45,10 +45,6 @@ ul, li {
   background-color: red;
 }
 
-.focused {
-  background-color: #F0F0F0;
-}
-
 .header {
   background-color: #ff7659;
   height: 70px;
@@ -60,8 +56,10 @@ ul, li {
   display: inline-block;
 }
 
-.row {
-  width: 600px;
+.list-item {
+}
+.list-item:hover {
+  background-color: #F0F0F0;
 }
 
 .row-link {
