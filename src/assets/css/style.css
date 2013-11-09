@@ -41,6 +41,10 @@ ul, li {
   width: 60%;
 }
 
+.failed {
+  background-color: red;
+}
+
 .focused {
   background-color: #F0F0F0;
 }
