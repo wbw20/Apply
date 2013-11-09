@@ -1,7 +1,8 @@
 <script type="text/x-handlebars" data-template-name="comments">
   {{view App.CommentListView contentBinding="submission_comments"}}
 
-  {{input type="text" value=firstName disabled=entryNotAllowed size="50"}}
+  {{view Ember.TextField valueBinding='body' name="body"}}
+  <button {{action 'submit' newComment}}>Submit</button>
 </script>
 
 <% include _comment %>
