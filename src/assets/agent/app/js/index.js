@@ -1,5 +1,5 @@
 import 'router';
-import 'views/root_view';
+import 'views/application_view';
 import 'views/row_view';
 import 'views/dashboard/comment/comment_view';
 import 'views/dashboard/comment/comments_view';
