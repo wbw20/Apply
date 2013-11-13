@@ -3,7 +3,7 @@
 
   {{view App.CommentArea valueBinding='body' name="body"}}
   <br>
-  <p><a class="btn btn-primary btn-lg" role="button" {{action 'submit' body target='view'}}>Submit</a></p>
+  <a class="btn btn-primary btn-lg" role="button" {{action 'submit' body target='view'}}>Submit</a>
 </script>
 
 <% include _comment %>
