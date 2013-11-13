@@ -1,3 +1,5 @@
+import { App } from 'application';
+
 App.SidebarController = Ember.Controller.extend({
   select: function(pill) {
     if (!pill) { pill = 'workspace'; } //default

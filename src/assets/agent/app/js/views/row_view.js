@@ -1,10 +1,6 @@
-App.RowView = Ember.View.extend({
-  mouseEnter: function(event) {
-    $('li.focused').removeClass('focused');
-    $(event.target).addClass('focused');
-  },
+import { App } from 'application';
 
-  mouseLeave: function(event) {
-    $(event.target).removeClass('focused');
-  }
+App.RowView = Ember.View.extend({
+  classNames: ['list-item', 'list-group-item'],
+  tagName: 'li'
 });

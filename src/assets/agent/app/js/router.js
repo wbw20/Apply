@@ -1,3 +1,5 @@
+import { App } from 'application';
+
 App.Router.map(function() {
   this.route('new');
   this.resource('profile');
@@ -31,7 +33,6 @@ App.SubmissionRoute = Ember.Route.extend({
     }).fetch();
   },
   renderTemplate: function(controller, model) {
-    // this.controllerFor('application').newtab(model);
     this.render({
       outlet: 'dashboard'
     });

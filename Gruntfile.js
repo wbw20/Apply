@@ -1,18 +1,27 @@
 module.exports = function(grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+  grunt.registerMultiTask('browser', "Export a module to the window", function() {
+    var opts = this.options();
+    this.files.forEach(function(f) {
+      var output = ["(function(globals) {"];
+   
+      output.push.apply(output, f.src.map(grunt.file.read));
+   
+      output.push(grunt.template.process(
+        'window.<%= namespace %> = requireModule("<%= barename %>").App;', { 
+        data: {
+          namespace: opts.namespace,
+          barename: opts.barename
+        }
+      }));
+      output.push('})(window);');
+   
+      grunt.file.write(f.dest, grunt.template.process(output.join("\n")));
+    });
+  });
+
   grunt.initConfig({
-    // concat js and html in assets folder
-    concat: {
-      dist: {
-        src: [
-          'src/assets/agent/app/js/*.js',
-          'src/assets/agent/app/js/**/*.js',
-          'src/assets/agent/app/js/**/**/*.js',
-          'src/assets/agent/app/js/**/**/**/*.js'
-        ],
-        dest: 'src/dist/built.js',
-      },
-    },
     watch: {
       scripts: {
         files: [
@@ -21,12 +30,47 @@ module.exports = function(grunt) {
           'src/assets/agent/app/js/**/**/*.js',
           'src/assets/agent/app/js/**/**/**/*.js'
         ],
-        tasks: ['concat']
+        tasks: ['transpile', 'browser']
+      }
+    },
+    transpile: {
+      amd: {
+        type: 'amd',
+        files: [{
+          expand: true,
+          cwd: 'src/assets/agent/app/js/',
+          src: [
+            '*.js',
+            '**/*.js',
+            '**/**/*.js',
+            '**/**/**/*.js'
+          ],
+          dest: 'tmp/',
+          ext: '.amd.js'
+        }]
+      }
+    },
+    browser: {
+      dist: {
+          src: [
+            'src/assets/lib/loader.js',
+            'tmp/*.amd.js',
+            'tmp/**/*.amd.js',
+            'tmp/**/**/*.amd.js',
+            'tmp/**/**/**/*.amd.js'
+            ],
+        dest: 'src/assets/built/agent.js',
+        options: {
+          barename: 'index',
+          namespace: "App"
+        }
       }
     }
+
     // TODO: run tests
+    
   });
 
-  grunt.registerTask('default', ['concat']);
-  grunt.registerTask('server', ['concat', 'watch']);
+  grunt.registerTask('default', ['transpile', 'browser']);
+  grunt.registerTask('server', ['transpile', 'browser', 'watch']);
 };

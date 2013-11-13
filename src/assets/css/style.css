@@ -3,16 +3,46 @@ html, body {
   height: 100%;
 }
 
+ul, li {
+  list-style:none;
+  list-style-type:none;
+}
+
 /* Classes */
+.btn-primary {
+  color: #ffffff;
+  background-color: #ff7659;
+  border-color: #ff6140;
+}
+
+.btn-primary:hover {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
+.comment-area {
+  height: 100px;
+  width: 800px;
+  resize: none;
+  margin-bottom: 25px;
+}
+
+.comments {
+  margin-left: 50px;
+}
+
+.comment {
+  width: 800px;
+}
+
 .dashboard {
   float: left;
   padding-top: 30px;
   width: 60%;
-  height: 100%;
 }
 
-.focused {
-  background-color: #F0F0F0;
+.failed {
+  background-color: red;
 }
 
 .header {
@@ -22,11 +52,14 @@ html, body {
 
 .nav-bar {
   padding-top: 50px;
+  margin-left: 110px;
   display: inline-block;
 }
 
-.row {
-  width: 600px;
+.list-item {
+}
+.list-item:hover {
+  background-color: #F0F0F0;
 }
 
 .row-link {
@@ -45,6 +78,11 @@ html, body {
 
 ul.pill {
   display: inline-block;
+}
+
+ul.noindent {
+  margin-left: 0px;
+  padding-left: 0px;
 }
 
 li.pill {
@@ -73,9 +111,4 @@ li.pill {
 
 .icon-workspace {
   background-image:url('/icons/workspace.png');
-}
-
-/* Ember hacks */
-.ember-view {
-  height: 100%;
 }

@@ -1,3 +1,5 @@
+import { App } from 'application';
+
 App.PillView = Ember.View.extend({
   templateName: 'pill',
   tagName: 'em',

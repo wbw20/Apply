@@ -1,0 +1,9 @@
+<script type="text/x-handlebars" data-template-name="comments">
+  {{view App.CommentListView contentBinding="submission_comments"}}
+
+  {{view App.CommentArea valueBinding='body' name="body"}}
+  <br>
+  <a class="btn btn-primary btn-lg" role="button" {{action 'submit' body target='view'}}>Submit</a>
+</script>
+
+<% include _comment %>
