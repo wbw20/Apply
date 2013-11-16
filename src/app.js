@@ -30,10 +30,12 @@ app.param('id', function(req, res, next, id) {
   next();
 });
 
-require('./controllers/submission_controller').setup(app);
-require('./controllers/agent_controller').setup(app);
-require('./controllers/applicant_controller').setup(app);
-require('./controllers/comment_controller').setup(app);
+require('./controllers/v1/submission_controller').setup(app);
+require('./controllers/v1/agent_controller').setup(app);
+require('./controllers/v1/applicant_controller').setup(app);
+require('./controllers/v1/comment_controller').setup(app);
+
+require('./controllers/auth_controller').setup(app);
 
 dao.autoupdate(function() {
 });
@@ -41,8 +43,5 @@ dao.autoupdate(function() {
 app.get('/agent', auth.check, function(req, res) {
   res.render('built/agent');
 });
-
-var connection = require('./dao');
-require('./controllers/submission_controller');
 
 app.listen(8080);

@@ -1,6 +1,6 @@
-var Submission = require('../models/models').Submission;
-var Comment = require('../models/models').Comment;
-var util = require('../util');
+var Submission = require('../../models/models').Submission;
+var Comment = require('../../models/models').Comment;
+var util = require('../../util');
 
 module.exports = {
   setup: function(app) {
