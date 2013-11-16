@@ -2,12 +2,15 @@ var express = require('express'),
     ejs = require('ejs'),
     sass = require('node-sass'),
     fs = require('fs'),
-    dao = require('./dao');
+    dao = require('./dao'),
+    auth = require('./auth');
 
 var app = express();
 app.engine('.html', ejs.__express);
 app.use(express.static(__dirname + '/assets'));
 app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
 app.set('view engine', 'html');
 app.set('views', __dirname + '/assets');
 
@@ -35,7 +38,7 @@ require('./controllers/comment_controller').setup(app);
 dao.autoupdate(function() {
 });
 
-app.get('/agent', function(req, res) {
+app.get('/agent', auth.check, function(req, res) {
   res.render('built/agent');
 });
 
