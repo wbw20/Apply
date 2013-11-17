@@ -11,9 +11,9 @@ module.exports = {
             data.submission_comments(function(error, comments) {
               var result = data.toObject();
               result.applicant = applicant.toObject();
-              result.comments = [];
+              result.submission_comments = [];
               for (var i=0, l=comments.length; i<l; i++) {
-                result.comments.push(comments[i].toObject());
+                result.submission_comments.push(comments[i].toObject());
               }
               res.send(result);
             });
@@ -38,7 +38,31 @@ module.exports = {
       });
     });
 
-    app.put('/v1/submission', function(req, res) {
+    app.put('/v1/submission/:id', function(req, res) {
+      //TODO
+    });
+
+    app.get('/v1/submission/:id/comment', function(req, res) {
+      Submission.find(req.id, function(error, data) {
+        data.submission_comments(function(error, comments) {
+          res.send(comments);
+        });
+      });
+    });
+
+    app.post('/v1/submission/comment', function(req, res) {
+      Submission.find(req.body.submissionId, function(error, data) {
+        data.submission_comments.create(req.body, function(error) {
+          if (error) {
+            res.send(500, error);
+          } else {
+            res.send(200);
+          }
+        });
+      });
+    });
+
+    app.put('/v1/submission/comment', function(req, res) {
       //TODO
     });
   }
