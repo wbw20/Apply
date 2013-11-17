@@ -112,3 +112,11 @@ li.pill {
 .icon-workspace {
   background-image:url('/icons/workspace.png');
 }
+
+table .aplcnt-list-view {
+  display: table-row;
+}
+.wrkspace-panel {
+  margin: 10px;
+  border-radius: 2px;
+}
