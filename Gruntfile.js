@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  grunt.registerMultiTask('browser', "Export a module to the window", function() {
+  grunt.registerMultiTask('browser', 'Export a module to the window', function() {
     var opts = this.options();
     this.files.forEach(function(f) {
       var output = ["(function(globals) {"];
@@ -9,7 +9,7 @@ module.exports = function(grunt) {
       output.push.apply(output, f.src.map(grunt.file.read));
    
       output.push(grunt.template.process(
-        'window.<%= namespace %> = requireModule("<%= barename %>").App;', { 
+        'window.<%= namespace %> = requireModule("<%= barename %>").App;', {
         data: {
           namespace: opts.namespace,
           barename: opts.barename
@@ -24,10 +24,34 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // render ejs
     template: {
-      dev: {      
+      dev: {
         src: 'src/assets/agent/app/ejs/index.ejs',
         dest: 'src/assets/built/index.html',
         variables: {}
+      }
+    },
+
+    // compile less
+    less: {
+      development: {
+        options: {
+          paths: [
+            'bower_components/bootstrap/less',
+            'bower_components/normalize-css'
+          ]
+        },
+        files: {
+          'src/assets/css/base.css': 'src/assets/less/theme.less'
+        }
+      },
+      production: {
+        options: {
+          paths: ['bower_components/bootstrap/less'],
+          cleancss: true
+        },
+        files: {
+          'src/assets/css/base.css': 'src/assets/less/theme.less'
+        }
       }
     },
 
@@ -44,8 +68,16 @@ module.exports = function(grunt) {
           'src/assets/agent/app/ejs/{**/,**/**/,**/**/**/}*.ejs'
         ],
         tasks: ['template']
+      },
+      less: {
+        files: [
+          'src/assets/agent/app/less/*.less'
+        ],
+        tasks: ['less']
       }
     },
+
+    // amd-ify js
     transpile: {
       amd: {
         type: 'amd',
@@ -63,6 +95,8 @@ module.exports = function(grunt) {
         }]
       }
     },
+
+    // compile amd'd js
     browser: {
       dist: {
           src: [
@@ -84,6 +118,6 @@ module.exports = function(grunt) {
     
   });
 
-  grunt.registerTask('default', ['transpile', 'browser']);
-  grunt.registerTask('server', ['transpile', 'browser', 'watch']);
+  grunt.registerTask('default', ['transpile', 'browser', 'less:production']);
+  grunt.registerTask('server', ['transpile', 'browser', 'less:development', 'watch']);
 };
