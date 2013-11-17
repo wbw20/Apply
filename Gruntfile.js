@@ -22,15 +22,28 @@ module.exports = function(grunt) {
   });
 
   grunt.initConfig({
+    // render ejs
+    template: {
+      dev: {      
+        src: 'src/assets/agent/app/ejs/index.ejs',
+        dest: 'src/assets/built/index.html',
+        variables: {}
+      }
+    },
+
+    // watch files and re-build
     watch: {
       scripts: {
         files: [
-          'src/assets/agent/app/js/*.js',
-          'src/assets/agent/app/js/**/*.js',
-          'src/assets/agent/app/js/**/**/*.js',
-          'src/assets/agent/app/js/**/**/**/*.js'
+          'src/assets/agent/app/js/{**/,**/**/,**/**/**/}*.js'
         ],
         tasks: ['transpile', 'browser']
+      },
+      templates: {
+        files: [
+          'src/assets/agent/app/ejs/{**/,**/**/,**/**/**/}*.ejs'
+        ],
+        tasks: ['template']
       }
     },
     transpile: {
