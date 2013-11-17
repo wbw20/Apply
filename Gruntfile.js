@@ -26,7 +26,7 @@ module.exports = function(grunt) {
     template: {
       dev: {
         src: 'src/assets/agent/app/ejs/index.ejs',
-        dest: 'src/assets/built/index.html',
+        dest: 'src/assets/built/agent.html',
         variables: {}
       }
     },
@@ -46,7 +46,10 @@ module.exports = function(grunt) {
       },
       production: {
         options: {
-          paths: ['bower_components/bootstrap/less'],
+          paths: [
+            'bower_components/bootstrap/less',
+            'bower_components/normalize-css'
+          ],
           cleancss: true
         },
         files: {
@@ -71,9 +74,9 @@ module.exports = function(grunt) {
       },
       less: {
         files: [
-          'src/assets/agent/app/less/*.less'
+          'src/assets/less/*.less'
         ],
-        tasks: ['less']
+        tasks: ['less:development']
       }
     },
 
@@ -118,6 +121,6 @@ module.exports = function(grunt) {
     
   });
 
-  grunt.registerTask('default', ['transpile', 'browser', 'less:production']);
-  grunt.registerTask('server', ['transpile', 'browser', 'less:development', 'watch']);
+  grunt.registerTask('default', ['transpile', 'browser', 'template:dev', 'less:production']);
+  grunt.registerTask('server', ['transpile', 'browser', 'template:dev', 'less:development', 'watch']);
 };

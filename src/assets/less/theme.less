@@ -6,6 +6,16 @@
 @import (less) "normalize.css"; // insert normalize into stylesheet
 @import "variables.less"; // import Apply variables
 
+// classes that are mixed in later
+
+.transition (@target, @time) {
+  -webkit-transition: @target @time ease-in-out;
+  -moz-transition: @target @time ease-in-out;
+  -ms-transition: @target @time ease-in-out;
+  -o-transition: @target @time ease-in-out;
+  transition: @target @time ease-in-out;
+}
+
 // Add CSS Customizations to your theme here.
 
 html, body {
@@ -20,14 +30,15 @@ ul, li {
 
 /* Classes */
 .btn-primary {
-  color: #ffffff;
-  background-color: #ff7659;
-  border-color: #ff6140;
+  color: @btn-primary-color;
+  background-color: @btn-primary-bg;
+  border-color: @btn-primary-border;
+  .transition(all, 250ms);
 }
 
 .btn-primary:hover {
-  background-color: #ff6140;
-  border-color: #ff6140;
+  background-color: @link-hover-color;
+  border-color: @link-hover-bg;
 }
 
 .comment-area {
@@ -52,11 +63,11 @@ ul, li {
 }
 
 .failed {
-  background-color: red;
+  background-color: @btn-warning-bg;
 }
 
 .header {
-  background-color: #ff7659;
+  background-color: @brand-primary;
   height: 70px;
 }
 
@@ -69,17 +80,17 @@ ul, li {
 .list-item {
 }
 .list-item:hover {
-  background-color: #F0F0F0;
+  background-color: @gray-lighter;
 }
 
 .row-link {
   text-decoration: none;
   display: block;
-  color: black;
+  color: @gray-dark;
 }
 
 .sidebar {
-  background-color: #f8f8f8;
+  background-color: @gray-lighter;
   float: left;
   text-align: center;
   width: 110px;
@@ -99,6 +110,7 @@ li.pill {
   margin-top: 35px;
 }
 
+
 .icon {
   height: 32px;
   width: 32px;
@@ -111,7 +123,7 @@ li.pill {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  background-color: #e6e6e6;
+  background-color: @gray-light;
 }
 
 /* Image Assets */
