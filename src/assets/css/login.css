@@ -3,7 +3,7 @@ body {
   height: 1000px;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: 'Lato', sans-serif;
   color: #ff7659;
 }
@@ -55,6 +55,15 @@ div.login-box-inner {
 
 .login-box-inner > h1 {
   float: left;
+}
+
+span.options {
+  text-align: left;
+}
+
+.login-box-inner > span > a > h3 {
+  padding-left: 2px;
+  font-size: 14pt;
 }
 
 div.login {
