@@ -24,6 +24,7 @@ h1.small {
 div.header {
   height: 130px;
   background-color: white;
+  border-bottom: 1px solid #dcdcdc;
 }
 
 .header .large {
@@ -35,4 +36,27 @@ div.header {
   float: right;
   margin-right: 50px;
   margin-top: 60px;
+}
+
+.login-box {
+  text-align: center;
+  padding-top: 100px;
+}
+
+div.login-box-inner {
+  display: inline-block;
+  width: 500px;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  padding-left: 45px;
+  padding-bottom: 40px;
+}
+
+.login-box-inner > h1 {
+  float: left;
+}
+
+div.login {
+  width: 400px;
+  margin-top: 30px;
 }
