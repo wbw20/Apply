@@ -73,6 +73,16 @@ div.login {
   border-color: #ff6140;
 }
 
+.btn-primary:active {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
+.btn-primary:focus {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
 button.submit {
   float: right;
   margin-top: 40px;
