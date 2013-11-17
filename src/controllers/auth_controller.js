@@ -6,8 +6,8 @@ module.exports = {
 
     app.post('/login', function(req, res) {
       var post = req.body;
-      if (post.user == 'john' && post.password == 'johnspassword') {
-        req.session.user_id = johns_user_id_here;
+      if (post.username == 'john' && post.password == 'johnspassword') {
+        req.session.user_id = 1;
         res.redirect('/agent');
       } else {
         res.send('Bad user/pass');
