@@ -48,6 +48,7 @@ div.login-box-inner {
   width: 500px;
   background-color: white;
   border: 1px solid #dcdcdc;
+  border-radius: 5px;
   padding-left: 45px;
   padding-bottom: 40px;
 }
@@ -59,4 +60,21 @@ div.login-box-inner {
 div.login {
   width: 400px;
   margin-top: 30px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #ff7659;
+  border-color: #ff6140;
+}
+
+.btn-primary:hover {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
+button.submit {
+  float: right;
+  margin-top: 40px;
+  margin-right: 60px;
 }
