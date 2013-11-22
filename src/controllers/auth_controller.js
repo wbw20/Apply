@@ -13,7 +13,6 @@ module.exports = {
           username: req.body.username
         }
       }, function(error, agent) {
-        debugger
         if (error || !agent) {
           res.send(error);
         } else {
