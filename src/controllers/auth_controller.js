@@ -1,3 +1,6 @@
+var bcrypt = require('bcrypt');
+var Agent = require('../models/agent').Agent;
+
 module.exports = {
   setup: function(app) {
     app.get('/login', function(req, res) {
@@ -17,6 +20,18 @@ module.exports = {
     app.get('/logout', function(req, res) {
       delete req.session.user_id;
       res.redirect('/login');
+    });
+
+    app.post('/signup', function(req, res) {
+      req.body.salt = bcrypt.genSaltSync(10);
+      req.body.password = bcrypt.hashSync(req.body.password, req.body.salt);
+      Agent.create(req.body, function(error, agent) {
+        if (error) {
+          res.send(500, error);
+        } else {
+          res.send(200, agent);
+        }
+      });
     });
   }
 }
