@@ -33,7 +33,8 @@ module.exports = {
         if (error) {
           res.send(500, error);
         } else {
-          res.send(200, agent);
+          req.session.user_id = agent.id;
+          res.redirect('/agent');
         }
       });
     });
