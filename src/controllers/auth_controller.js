@@ -8,13 +8,26 @@ module.exports = {
     });
 
     app.post('/login', function(req, res) {
-      var post = req.body;
-      if (post.username == 'john' && post.password == 'johnspassword') {
-        req.session.user_id = 1;
-        res.redirect('/agent');
-      } else {
-        res.send('Bad user/pass');
-      }
+      Agent.findOne({
+        where: {
+          username: req.body.username
+        }
+      }, function(error, agent) {
+        debugger
+        if (error || !agent) {
+          res.send(error);
+        } else {
+          bcrypt.compare(req.body.password, agent.password, function(err, result) {
+            var post = req.body;
+            if (result) {
+              req.session.user_id = agent.id;
+              res.redirect('/agent');
+            } else {
+              res.send('Bad user/pass');
+            }
+          });
+        }
+      });
     });
 
     app.get('/logout', function(req, res) {
