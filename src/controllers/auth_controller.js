@@ -22,6 +22,10 @@ module.exports = {
       res.redirect('/login');
     });
 
+    app.get('/signup', function(req, res) {
+      res.render('signup');
+    });
+
     app.post('/signup', function(req, res) {
       req.body.salt = bcrypt.genSaltSync(10);
       req.body.password = bcrypt.hashSync(req.body.password, req.body.salt);
