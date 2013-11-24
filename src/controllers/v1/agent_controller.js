@@ -2,6 +2,16 @@ var Agent = require('../../models/agent').Agent;
 
 module.exports = {
   setup: function(app) {
-    // TODO
+    app.get('/v1/agent/:id?', function(req, res) {
+      if (req.id) {
+        Agent.find(req.id, function(error, data) {
+          res.send(data);
+        });
+      } else {
+        Agent.all(function(error, data) {
+          res.send(data);
+        });
+      }
+    });
   }
 };

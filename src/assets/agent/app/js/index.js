@@ -8,6 +8,7 @@ import 'views/dashboard/workspace/workspace_row_view';
 import 'views/dashboard/workspace/workspace_view';
 import 'views/sidebar/pill_view';
 import 'views/widget/agent_widget_view';
+import 'models/agent';
 import 'models/applicant';
 import 'models/submission';
 import 'controller/application_controller';
