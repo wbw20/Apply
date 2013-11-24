@@ -1,11 +1,28 @@
 <script type="text/x-handlebars" data-template-name="workspace">
-  <ul class="list-group">
-    {{#each model}}
-      {{#view App.WorkspaceRowView valueBinding=this}}
-        <span>
-          {{applicant.first}} {{applicant.last}}
-        </span>
-      {{/view}}
-    {{/each}}
-  <ul>
+  <div class="panel panel-default table-responsive wrkspace-panel">
+  <div class="panel-heading">Workspace</div>
+  <div class="panel-body">
+    <p>This is where all of the applications for you to review are placed.</p>
+  </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>twitter username</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each model}}
+      {{#view App.WorkspaceRowView valueBinding=this}} <!-- tr -->
+        <td>{{id}}</td>
+        <td>{{applicant.first}}</td>
+        <td>{{applicant.last}}</td>
+        <td>@{{twitter}}</td>
+      {{/view}} <!-- /tr -->
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
 </script>
