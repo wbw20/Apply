@@ -2,6 +2,7 @@ npm-debug.log
 .DS_Store
 
 node_modules/
+bower_components/
 src/assets/built/
 conf/
 tmp/

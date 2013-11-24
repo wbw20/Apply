@@ -1,0 +1,136 @@
+/*!
+ * Apply Theme
+ */
+
+@import "bootstrap.less";  // import base bootstrap.less
+@import (less) "normalize.css"; // insert normalize into stylesheet
+@import "variables.less"; // import Apply variables
+
+// classes that are mixed in later
+
+.transition (@target, @time) {
+  -webkit-transition: @target @time ease-in-out;
+  -moz-transition: @target @time ease-in-out;
+  -ms-transition: @target @time ease-in-out;
+  -o-transition: @target @time ease-in-out;
+  transition: @target @time ease-in-out;
+}
+
+// Add CSS Customizations to your theme here.
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+ul, li {
+  list-style:none;
+  list-style-type:none;
+}
+
+/* Classes */
+.btn-primary {
+  color: @btn-primary-color;
+  background-color: @btn-primary-bg;
+  border-color: @btn-primary-border;
+  .transition(all, 250ms);
+}
+
+.btn-primary:hover {
+  background-color: @link-hover-color;
+  border-color: @link-hover-bg;
+}
+
+.comment-area {
+  height: 100px;
+  width: 800px;
+  resize: none;
+  margin-bottom: 25px;
+}
+
+.comments {
+  margin-left: 50px;
+}
+
+.comment {
+  width: 800px;
+}
+
+.dashboard {
+  float: left;
+  padding-top: 30px;
+  width: 60%;
+}
+
+.failed {
+  background-color: @btn-warning-bg;
+}
+
+.header {
+  background-color: @brand-primary;
+  height: 70px;
+}
+
+.nav-bar {
+  padding-top: 50px;
+  margin-left: 110px;
+  display: inline-block;
+}
+
+.list-item {
+}
+.list-item:hover {
+  background-color: @gray-lighter;
+}
+
+.row-link {
+  text-decoration: none;
+  display: block;
+  color: @gray-dark;
+}
+
+.sidebar {
+  background-color: @gray-lighter;
+  float: left;
+  text-align: center;
+  width: 110px;
+  height: 100%;
+}
+
+ul.pill {
+  display: inline-block;
+}
+
+ul.noindent {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+li.pill {
+  margin-top: 35px;
+}
+
+
+.icon {
+  height: 32px;
+  width: 32px;
+}
+
+.icon.icon-sidebar {
+  margin: 0 auto;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background-color: @gray-light;
+}
+
+/* Image Assets */
+.icon-profile {
+  background-image:url('/icons/profile.png');
+}
+
+.icon-workspace {
+  background-image:url('/icons/workspace.png');
+}
