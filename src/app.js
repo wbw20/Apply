@@ -10,9 +10,9 @@ app.engine('.html', ejs.__express);
 app.use(express.static(__dirname + '/assets'));
 app.use(express.bodyParser());
 app.use(express.cookieParser());
-app.use(express.session({secret: '1234567890QWERTY'}));
 app.set('view engine', 'html');
 app.set('views', __dirname + '/assets');
+auth.setup(app);
 
 /* Built agent assets */
 var agenthtml = ejs.render(fs.readFileSync(__dirname + "/assets/agent/app/ejs/index.ejs").toString(), {
