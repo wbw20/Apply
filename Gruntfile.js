@@ -121,6 +121,6 @@ module.exports = function(grunt) {
     
   });
 
-  grunt.registerTask('default', ['transpile', 'browser', 'template:dev', 'less:production']);
+  grunt.registerTask('default', ['transpile', 'browser', 'template:dev', 'less:development']);
   grunt.registerTask('server', ['transpile', 'browser', 'template:dev', 'less:development', 'watch']);
 };
