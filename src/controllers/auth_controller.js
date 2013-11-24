@@ -1,5 +1,5 @@
 var bcrypt = require('bcrypt');
-var Agent = require('../models/agent').Agent;
+var Agent = require('../models/models').Agent;
 
 module.exports = {
   setup: function(app) {
