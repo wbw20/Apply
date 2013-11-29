@@ -2,12 +2,23 @@ import { App } from 'application';
 
 App.Router.map(function() {
   this.route('new');
+  this.resource('agent');
   this.resource('profile');
   this.resource('workspace');
   this.resource('submissions', function() {
     this.resource('submission', { path: "/:submission_id" });
   });
 });
+
+App.AgentRoute = Ember.Route.extend({
+  model: function() {
+    return Ember.Object.create({
+      username: 'Willy Boy'
+    });
+  }
+});
+
+App.AgentWidgetRoute = App.AgentRoute.extend();
 
 App.NewRoute = Ember.Route.extend({
   renderTemplate: function(controller) {
