@@ -29,7 +29,7 @@ module.exports = {
       });
     });
 
-    app.get('/logout', function(req, res) {
+    app.get('/signout', function(req, res) {
       delete req.session.user_id;
       res.redirect('/login');
     });
