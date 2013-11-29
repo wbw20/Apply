@@ -2,6 +2,7 @@ import { App } from 'application';
 
 App.Router.map(function() {
   this.route('new');
+  this.resource('agent');
   this.resource('profile');
   this.resource('workspace');
   this.resource('submissions', function() {

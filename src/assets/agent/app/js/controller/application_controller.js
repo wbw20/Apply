@@ -10,6 +10,11 @@ App.ApplicationController = Ember.ArrayController.extend({
       name: "New",
       route: "new"
     }]);
+
+    var self = this;
+    $.get('/v1/me', function(data) {
+      self.set('me', data);
+    });
   },
   open: function(tab) {
     if (!this.contains(tab)) {

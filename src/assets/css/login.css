@@ -1,0 +1,99 @@
+body {
+  background-image: url('/png/texture0.png');
+  height: 1000px;
+}
+
+h1, h2, h3 {
+  font-family: 'Lato', sans-serif;
+  color: #ff7659;
+}
+
+h1.large {
+  font-weight: 700;
+  font-size: 56pt;
+}
+
+h1.medium {
+  font-weight: 300;
+}
+
+h1.small {
+  font-weight: 100;
+}
+
+div.header {
+  height: 130px;
+  background-color: white;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.header .large {
+  float: left;
+  margin-left: 200px;
+}
+
+.header .small {
+  float: right;
+  margin-right: 50px;
+  margin-top: 60px;
+}
+
+.login-box {
+  text-align: center;
+  padding-top: 100px;
+}
+
+div.login-box-inner {
+  display: inline-block;
+  width: 500px;
+  background-color: white;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  padding-left: 45px;
+  padding-bottom: 40px;
+}
+
+.login-box-inner > h1 {
+  float: left;
+}
+
+span.options {
+  text-align: left;
+}
+
+.login-box-inner > span > a > h3 {
+  padding-left: 2px;
+  font-size: 14pt;
+}
+
+div.login {
+  width: 400px;
+  margin-top: 30px;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #ff7659;
+  border-color: #ff6140;
+}
+
+.btn-primary:hover {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
+.btn-primary:active {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
+.btn-primary:focus {
+  background-color: #ff6140;
+  border-color: #ff6140;
+}
+
+button.submit {
+  float: right;
+  margin-top: 40px;
+  margin-right: 60px;
+}

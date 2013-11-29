@@ -1,4 +1,4 @@
-var Comment = require('../models/models').Comment;
+var Comment = require('../../models/models').Comment;
 
 module.exports = {
   setup: function(app){

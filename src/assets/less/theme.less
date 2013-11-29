@@ -2,8 +2,6 @@
  * Apply Theme
  */
 
-@import "bootstrap.less";  // import base bootstrap.less
-@import (less) "normalize.css"; // insert normalize into stylesheet
 @import "variables.less"; // import Apply variables
 
 // classes that are mixed in later
@@ -83,6 +81,16 @@ ul, li {
 }
 .list-item:hover {
   background-color: @gray-lighter;
+}
+
+div.my_info {
+  float: right;
+  height: 100%;
+  width: 200px;
+}
+
+div > div.my_info {
+  padding-top: 12px;
 }
 
 .row-link {

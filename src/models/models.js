@@ -1,4 +1,5 @@
 var Submission = require('./submission').Submission,
+    Agent = require('./agent').Agent,
     Applicant = require('./applicant').Applicant,
     SubmissionComment = require('./submission_comment').SubmissionComment;
 
@@ -24,6 +25,7 @@ Submission.hasMany('submission_comments', {
 });
 
 module.exports = {
+  Agent      : Agent,
   Applicant  : Applicant,
   Submission : Submission
 };
