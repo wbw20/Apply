@@ -11,8 +11,9 @@ App.ApplicationController = Ember.ArrayController.extend({
       route: "new"
     }]);
 
-    this.set('me', {
-      username: 'will'
+    var self = this;
+    $.get('/v1/me', function(data) {
+      self.set('me', data);
     });
   },
   open: function(tab) {
