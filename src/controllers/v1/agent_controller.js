@@ -13,5 +13,17 @@ module.exports = {
         });
       }
     });
+
+    app.get('/v1/me', function(req, res) {
+      if (!req.session || !req.session.user_id) {
+        res.send(404);
+      } else {
+        Agent.find(req.session.user_id, function(error, data) {
+          var result = data.toObject();
+          delete result.password;
+          res.send(result);
+        });
+      }
+    });
   }
 };
