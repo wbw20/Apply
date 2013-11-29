@@ -10,16 +10,6 @@ App.Router.map(function() {
   });
 });
 
-App.AgentRoute = Ember.Route.extend({
-  model: function() {
-    return Ember.Object.create({
-      username: 'Willy Boy'
-    });
-  }
-});
-
-App.AgentWidgetRoute = App.AgentRoute.extend();
-
 App.NewRoute = Ember.Route.extend({
   renderTemplate: function(controller) {
     this.render({

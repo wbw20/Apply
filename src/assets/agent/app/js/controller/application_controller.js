@@ -10,6 +10,10 @@ App.ApplicationController = Ember.ArrayController.extend({
       name: "New",
       route: "new"
     }]);
+
+    this.set('me', {
+      username: 'will'
+    });
   },
   open: function(tab) {
     if (!this.contains(tab)) {

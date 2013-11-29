@@ -11,6 +11,7 @@ import 'components/agent_widget_component';
 import 'models/agent';
 import 'models/applicant';
 import 'models/submission';
+import 'controller/agent_controller';
 import 'controller/application_controller';
 import 'controller/sidebar_controller';
 import 'controller/submission_controller';
