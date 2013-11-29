@@ -7,7 +7,6 @@ import 'views/dashboard/workspace/submission_view';
 import 'views/dashboard/workspace/workspace_row_view';
 import 'views/dashboard/workspace/workspace_view';
 import 'views/sidebar/pill_view';
-import 'components/agent_widget_component';
 import 'models/agent';
 import 'models/applicant';
 import 'models/submission';
