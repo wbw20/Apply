@@ -67,3 +67,39 @@ module.exports = {
     });
   }
 };
+
+
+// create logs
+// Submission.create({
+//   applicantId: '9875'
+// }, function(err, model) {
+//   model.applicantId = '3456';
+//   model.save(function(err) {
+//   });
+// });
+
+// query logs
+var log = require('monk')('localhost/ap_backlog').get('log');
+
+// get last 10 changes from one submission
+// log.find({
+//   type: 'submission'
+// }, { limit: 10 }).success(function(docs) {
+//   console.log(docs);
+// }).error(function(err) {
+//   console.log(err);
+// });
+
+
+// find latest from each submission
+log.find({
+  type: 'submission'
+}).each(function(doc) {
+  if(!this.reduce) this.reduce = {};
+
+  if(!this.reduce[doc.id] || this.reduce[doc.id].changed < doc.changed) {
+    this.reduce[doc.id] = doc;
+  }
+}).success(function(){
+  console.log(this.reduce);
+});
