@@ -1,6 +1,7 @@
 var Submission = require('../models/models').Submission;
 var Comment = require('../models/models').Comment;
 var util = require('../util');
+var backlog = require('../backlog');
 
 module.exports = {
   setup: function(app) {
@@ -29,11 +30,12 @@ module.exports = {
     });
 
     app.post('/v1/submission', function(req, res) {
-      Submission.create(req.body, function(error) {
+      Submission.create(req.body, function(error, model) {
         if (error) {
           res.send(500, error);
         } else {
           res.send(200);
+          backlog.log(1, model);
         }
       });
     });
@@ -79,7 +81,7 @@ module.exports = {
 // });
 
 // query logs
-var log = require('monk')('localhost/ap_backlog').get('log');
+// var log = require('monk')('localhost/ap_backlog').get('log');
 
 // get last 10 changes from one submission
 // log.find({
@@ -92,14 +94,14 @@ var log = require('monk')('localhost/ap_backlog').get('log');
 
 
 // find latest from each submission
-log.find({
-  type: 'submission'
-}).each(function(doc) {
-  if(!this.reduce) this.reduce = {};
+// log.find({
+//   type: 'submission'
+// }).each(function(doc) {
+//   if(!this.reduce) this.reduce = {};
 
-  if(!this.reduce[doc.id] || this.reduce[doc.id].changed < doc.changed) {
-    this.reduce[doc.id] = doc;
-  }
-}).success(function(){
-  console.log(this.reduce);
-});
+//   if(!this.reduce[doc.id] || this.reduce[doc.id].changed < doc.changed) {
+//     this.reduce[doc.id] = doc;
+//   }
+// }).success(function(){
+//   console.log(this.reduce);
+// });

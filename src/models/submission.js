@@ -1,25 +1,11 @@
 var dao = require('../dao'),
-    Applicant = require('./applicant').Applicant,
-    _ = require('underscore');
-
-var log = require('monk')('localhost/ap_backlog').get('log');
+    Applicant = require('./applicant').Applicant;
 
 var Submission = dao.define('submission', {
     submitted: { type: Date, default: Date.now }
 });
 
-Submission.afterSave = function(next) {
-	// this === submission being saved
-
-	var sub = _.extend(_.clone(this.__data),{
-		changed: Date.now(),
-		type: 'submission'
-	});
-
-	var plog = log.insert(sub);
-
-	next();
-};
+Submission.prototype.type = 'submission';
 
 module.exports = {
   Submission: Submission
